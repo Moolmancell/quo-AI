@@ -13,7 +13,7 @@ export default function Logo({hideText}: {hideText?: boolean}) {
                 <path d="M21.8667 9.86664V22.1333" strokeWidth="2.5" strokeLinecap="round" />
                 <path d="M16 8V24" strokeWidth="2.5" strokeLinecap="round" />
             </svg>
-            <span className={`hidden md:block text-base dark:text-white ${hideText ? 'hidden' : ''}`}>Quo <strong>AI</strong></span>
+            {!hideText && <span className={`hidden md:block text-base dark:text-white`}>Quo <strong>AI</strong></span>}
         </div>
     );
 }
