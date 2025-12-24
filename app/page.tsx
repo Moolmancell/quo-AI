@@ -20,7 +20,7 @@ export default function Home() {
             <h1 className="text-3xl sm:text-5xl font-sans font-semibold text-center">
               A Calmer Feed for a Curious Mind.
             </h1>
-            <p className="text-base text-center">
+            <p className="text-base text-center text-muted-foreground">
               Your personal AI buddy curates essays, quotes, and ideas based on what you care about — and is always ready to talk.
             </p>
           </div>
