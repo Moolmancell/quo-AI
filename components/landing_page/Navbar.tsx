@@ -39,9 +39,9 @@ export default function NavBar() {
             <Link href="/"><Logo /></Link>
 
             <div className='flex flex-row gap-4'>
-                <Button 
-                    variant="ghost" 
-                    size="icon" 
+                <Button
+                    variant="ghost"
+                    size="icon"
                     onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                 >
                     {theme === 'dark' ? (
@@ -52,8 +52,12 @@ export default function NavBar() {
                 </Button>
 
                 <div className='flex flex-row gap-2'>
-                    <Button size="sm">Log In</Button>
-                    <Button variant="secondary" size="sm">Sign Up</Button>
+                    <Button asChild size="sm">
+                        <Link href="/login">Log In</Link>
+                    </Button>
+                    <Button asChild variant="secondary" size="sm">
+                        <Link href="/signup">Sign Up</Link>
+                    </Button>
                 </div>
             </div>
         </nav>
