@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { Toaster } from "@/components/ui/Sonner"
+import { MSWProvider } from '@/mocks/MSWProvider'
 import "./globals.css";
+
+if (process.env.NODE_ENV === 'development' && typeof window === 'undefined') {
+  const { server } = require('@/mocks/node')
+  server.listen({ onUnhandledRequest: 'bypass' })
+}
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +41,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <MSWProvider>{children}</MSWProvider>
+          
           <Toaster />
         </ThemeProvider>
       </body>
