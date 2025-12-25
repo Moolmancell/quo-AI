@@ -43,7 +43,10 @@ export default function RootLayout({
         >
           <MSWProvider>{children}</MSWProvider>
           
-          <Toaster />
+          <Toaster 
+            position="top-center"
+            richColors
+          />
         </ThemeProvider>
       </body>
     </html>
