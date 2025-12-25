@@ -6,7 +6,7 @@ import { z } from "zod"
 import { toast } from "sonner"
 import Link from "next/link"
 
-import { Form } from "@/components/ui/Form" 
+import { Form } from "@/components/ui/Form"
 import { Field, FieldLabel, FieldDescription, FieldError, FieldSet, FieldGroup } from "@/components/ui/Field"
 import { Button } from "@/components/ui/Button"
 import { Input } from "@/components/ui/Input"
@@ -14,24 +14,28 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import Logo from "@/components/brand/Logo"
 import InputPassword from "@/components/forms/InputPassword"
 import axios from "axios";
+import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
-  username: z.string().min(3).max(20),
-  email: z.string().email("Invalid email address"),
-  password: z
-    .string()
-    .min(8, "Password must be at least 8 characters")
-    .regex(/[a-z]/, "Must contain at least one lowercase letter")
-    .regex(/[A-Z]/, "Must contain at least one uppercase letter")
-    .regex(/[0-9]/, "Must contain at least one number")
-    .regex(/[^a-zA-Z0-9]/, "Must contain at least one special character"),
-  confirm_password: z.string()
+    username: z.string().min(3).max(20),
+    email: z.string().email("Invalid email address"),
+    password: z
+        .string()
+        .min(8, "Password must be at least 8 characters")
+        .regex(/[a-z]/, "Must contain at least one lowercase letter")
+        .regex(/[A-Z]/, "Must contain at least one uppercase letter")
+        .regex(/[0-9]/, "Must contain at least one number")
+        .regex(/[^a-zA-Z0-9]/, "Must contain at least one special character"),
+    confirm_password: z.string()
 }).refine((data) => data.password === data.confirm_password, {
-  message: "Passwords don't match",
-  path: ["confirm_password"],
+    message: "Passwords don't match",
+    path: ["confirm_password"],
 });
 
 export default function SignUpForm() {
+
+    const router = useRouter();
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -43,23 +47,28 @@ export default function SignUpForm() {
     })
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
+
+        const apiURL = process.env.NODE_ENV === "development"
+            ? "https://api.example.com/signup" //change this accordingly to the one you want to test
+            : process.env.NEXT_PUBLIC_API_URL + "/signup";
+
         console.log(values);
         const loadingToast = toast.loading("Creating your account...");
         try {
-        const response = await axios.post("/api/register", values);
+            const response = await axios.post(apiURL, values);
 
-        if (response.status === 201 || response.status === 200) {
-            toast.success("Account created successfully!", { id: loadingToast });
-            // Optional: redirect user using useRouter()
-            // router.push("/dashboard");
+            if (response.status === 201 || response.status === 200) {
+                toast.success("Account created successfully!", { id: loadingToast });
+                // Optional: redirect user using useRouter()
+                router.push("/login");
+            }
+        } catch (error: any) {
+            console.error("Form submission error", error);
+
+            // Handle specific error messages from your backend
+            const errorMessage = error.response?.data?.message || "Failed to create account.";
+            toast.error(errorMessage, { id: loadingToast });
         }
-    } catch (error: any) {
-        console.error("Form submission error", error);
-        
-        // Handle specific error messages from your backend
-        const errorMessage = error.response?.data?.message || "Failed to create account.";
-        toast.error(errorMessage, { id: loadingToast });
-    }
     }
 
     return (
@@ -92,10 +101,10 @@ export default function SignUpForm() {
 
                                 <Field>
                                     <FieldLabel htmlFor="password">Password</FieldLabel>
-                                    <InputPassword 
-                                        id="password" 
-                                        placeholder="********" 
-                                        {...form.register("password")} 
+                                    <InputPassword
+                                        id="password"
+                                        placeholder="********"
+                                        {...form.register("password")}
                                     />
                                     <FieldDescription>Min. 8 chars, including uppercase, lowercase, number, and special character.</FieldDescription>
                                     <FieldError>{form.formState.errors.password?.message}</FieldError>
@@ -103,10 +112,10 @@ export default function SignUpForm() {
 
                                 <Field>
                                     <FieldLabel htmlFor="confirm_password">Confirm Password</FieldLabel>
-                                    <InputPassword 
-                                        id="confirm_password" 
-                                        placeholder="********" 
-                                        {...form.register("confirm_password")} 
+                                    <InputPassword
+                                        id="confirm_password"
+                                        placeholder="********"
+                                        {...form.register("confirm_password")}
                                     />
                                     <FieldError>{form.formState.errors.confirm_password?.message}</FieldError>
                                 </Field>
