@@ -5,8 +5,12 @@ import { useEffect, useState } from 'react'
 export function MSWProvider({ children }: { children: React.ReactNode }) {
   const [mockingEnabled, setMockingEnabled] = useState(false)
 
+  const shouldMock =
+    process.env.NODE_ENV === 'development' &&
+    process.env.NEXT_PUBLIC_ENABLE_MOCKS === 'true';
+
   useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
+    if (shouldMock) {
       import('./browser').then(async ({ worker }) => {
         await worker.start({ onUnhandledRequest: 'bypass' })
         setMockingEnabled(true)

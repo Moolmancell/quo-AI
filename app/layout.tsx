@@ -5,7 +5,11 @@ import { Toaster } from "@/components/ui/Sonner"
 import { MSWProvider } from '@/mocks/MSWProvider'
 import "./globals.css";
 
-if (process.env.NODE_ENV === 'development' && typeof window === 'undefined') {
+const shouldMock =
+  process.env.NODE_ENV === 'development' &&
+  process.env.NEXT_PUBLIC_ENABLE_MOCKS === 'true';
+
+if (shouldMock && typeof window === 'undefined') {
   const { server } = require('@/mocks/node')
   server.listen({ onUnhandledRequest: 'bypass' })
 }
@@ -42,8 +46,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <MSWProvider>{children}</MSWProvider>
-          
-          <Toaster 
+
+          <Toaster
             position="top-center"
             richColors
           />
