@@ -46,8 +46,10 @@ export default function SignUpForm() {
         }
     })
 
-    async function onSubmit(values: z.infer<typeof formSchema>) {
+    const { errors } = form.formState;
 
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        
         const apiURL = process.env.NODE_ENV === "development"
             ? "https://api.example.com/signup-success" //change this accordingly to the one you want to test
             : process.env.NEXT_PUBLIC_API_URL + "/signup";
@@ -89,13 +91,13 @@ export default function SignUpForm() {
                             <FieldGroup className="flex flex-col gap-5">
                                 <Field>
                                     <FieldLabel htmlFor="username">Username</FieldLabel>
-                                    <Input id="username" placeholder="JohnDoe123" {...form.register("username")} />
+                                    <Input id="username" placeholder="JohnDoe123" aria-invalid={errors.username ? "true" : "false"} {...form.register("username")} />
                                     <FieldError>{form.formState.errors.username?.message}</FieldError>
                                 </Field>
 
                                 <Field>
                                     <FieldLabel htmlFor="email">Email</FieldLabel>
-                                    <Input id="email" placeholder="john.doe@example.com" {...form.register("email")} />
+                                    <Input id="email" placeholder="john.doe@example.com" aria-invalid={errors.email ? "true" : "false"} {...form.register("email")} />
                                     <FieldError>{form.formState.errors.email?.message}</FieldError>
                                 </Field>
 
@@ -104,6 +106,7 @@ export default function SignUpForm() {
                                     <InputPassword
                                         id="password"
                                         placeholder="********"
+                                        aria-invalid={errors.password ? "true" : "false"}
                                         {...form.register("password")}
                                     />
                                     <FieldDescription>Min. 8 chars, including uppercase, lowercase, number, and special character.</FieldDescription>
@@ -115,6 +118,7 @@ export default function SignUpForm() {
                                     <InputPassword
                                         id="confirm_password"
                                         placeholder="********"
+                                        aria-invalid={errors.confirm_password ? "true" : "false"}
                                         {...form.register("confirm_password")}
                                     />
                                     <FieldError>{form.formState.errors.confirm_password?.message}</FieldError>
