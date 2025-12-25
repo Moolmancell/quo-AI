@@ -49,7 +49,7 @@ export default function SignUpForm() {
     async function onSubmit(values: z.infer<typeof formSchema>) {
 
         const apiURL = process.env.NODE_ENV === "development"
-            ? "https://api.example.com/signup" //change this accordingly to the one you want to test
+            ? "https://api.example.com/signup-success" //change this accordingly to the one you want to test
             : process.env.NEXT_PUBLIC_API_URL + "/signup";
 
         console.log(values);
