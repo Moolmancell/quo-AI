@@ -56,7 +56,7 @@ export function useSignUp() {
                 router.push("/feed");
             },
             onError: (ctx) => {
-                if (ctx.error.code.includes("USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL")) {
+                if (ctx.error?.code === "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL") {
                     setIsEmailTaken(true);
                 }
                 toast.error(ctx.error.message, { id: "signup" });
