@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { toast } from "sonner"
 import Link from "next/link"
-
+import { authClient } from "@/lib/auth-client";
 import { Form } from "@/components/ui/Form"
 import { Field, FieldLabel, FieldDescription, FieldError, FieldSet, FieldGroup } from "@/components/ui/Field"
 import { Button } from "@/components/ui/Button"
@@ -36,28 +36,21 @@ export default function LogInForm() {
     const { errors } = form.formState;
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        
-        const apiURL = process.env.NODE_ENV === "development"
-            ? "https://api.example.com/login-success" //change this accordingly to the one you want to test
-            : process.env.NEXT_PUBLIC_API_URL + "/login";
-
-        console.log(values);
-        const loadingToast = toast.loading("Logging in...");
-        try {
-            const response = await axios.post(apiURL, values);
-
-            if (response.status === 201 || response.status === 200) {
-                toast.success("Logged in successfully!", { id: loadingToast });
-                // Optional: redirect user using useRouter()
+        const { data, error } = await authClient.signIn.email({
+            email: values.email,
+            password: values.password,
+        }, {
+            onRequest: () => {
+                toast.loading("Logging in...", { id: "login" });
+            },
+            onSuccess: () => {
+                toast.success("Logged in successfully!", { id: "login" });
                 router.push("/feed");
-            }
-        } catch (error: any) {
-            console.error("Form submission error", error);
-
-            // Handle specific error messages from your backend
-            const errorMessage = error.response?.data?.message || "Failed to login.";
-            toast.error(errorMessage, { id: loadingToast });
-        }
+            },
+            onError: (ctx) => {
+                toast.error(ctx.error.message, { id: "login" });
+            },
+        });
     }
 
     return (

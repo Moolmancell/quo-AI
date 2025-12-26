@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { toast } from "sonner"
 import Link from "next/link"
-
+import { authClient } from "@/lib/auth-client";
 import { Form } from "@/components/ui/Form"
 import { Field, FieldLabel, FieldDescription, FieldError, FieldSet, FieldGroup } from "@/components/ui/Field"
 import { Button } from "@/components/ui/Button"
@@ -13,8 +13,8 @@ import { Input } from "@/components/ui/Input"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card"
 import Logo from "@/components/brand/Logo"
 import InputPassword from "@/components/forms/InputPassword"
-import axios from "axios";
 import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 const formSchema = z.object({
     username: z.string().min(3).max(20),
@@ -34,6 +34,8 @@ const formSchema = z.object({
 
 export default function SignUpForm() {
 
+    const [isEmailTaken, setIsEmailTaken] = useState(false);
+
     const router = useRouter();
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -49,28 +51,26 @@ export default function SignUpForm() {
     const { errors } = form.formState;
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        
-        const apiURL = process.env.NODE_ENV === "development"
-            ? "https://api.example.com/signup-success" //change this accordingly to the one you want to test
-            : process.env.NEXT_PUBLIC_API_URL + "/signup";
-
-        console.log(values);
-        const loadingToast = toast.loading("Creating your account...");
-        try {
-            const response = await axios.post(apiURL, values);
-
-            if (response.status === 201 || response.status === 200) {
-                toast.success("Account created successfully!", { id: loadingToast });
-                // Optional: redirect user using useRouter()
-                router.push("/login");
-            }
-        } catch (error: any) {
-            console.error("Form submission error", error);
-
-            // Handle specific error messages from your backend
-            const errorMessage = error.response?.data?.message || "Failed to create account.";
-            toast.error(errorMessage, { id: loadingToast });
-        }
+        const { data, error } = await authClient.signUp.email({
+            email: values.email,     
+            password: values.password,
+            name: values.username,   
+            callbackURL: "/feed"
+        }, {
+            onRequest: () => {
+                toast.loading("Creating your account...", { id: "signup" });
+            },
+            onSuccess: () => {
+                toast.success("Successfully created your account!", { id: "signup" });
+                router.push("/feed");
+            },
+            onError: (ctx) => {
+                if (ctx.error.code.includes("USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL")) {
+                    setIsEmailTaken(true);
+                }
+                toast.error(ctx.error.message, { id: "signup" });
+            },
+        });
     }
 
     return (
@@ -97,8 +97,8 @@ export default function SignUpForm() {
 
                                 <Field>
                                     <FieldLabel htmlFor="email">Email</FieldLabel>
-                                    <Input id="email" placeholder="john.doe@example.com" aria-invalid={errors.email ? "true" : "false"} {...form.register("email")} />
-                                    <FieldError>{form.formState.errors.email?.message}</FieldError>
+                                    <Input id="email" placeholder="john.doe@example.com" aria-invalid={errors.email || isEmailTaken ? "true" : "false"} onInput={() => setIsEmailTaken(false)} {...form.register("email")} />
+                                    <FieldError>{form.formState.errors.email?.message}{isEmailTaken ? " Email is already taken." : ""}</FieldError>
                                 </Field>
 
                                 <Field>
