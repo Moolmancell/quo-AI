@@ -1,11 +1,6 @@
 "use client"
 
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from "zod"
-import { toast } from "sonner"
 import Link from "next/link"
-import { authClient } from "@/lib/auth-client";
 import { Form } from "@/components/ui/Form"
 import { Field, FieldLabel, FieldDescription, FieldError, FieldSet, FieldGroup } from "@/components/ui/Field"
 import { Button } from "@/components/ui/Button"
@@ -13,45 +8,11 @@ import { Input } from "@/components/ui/Input"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card"
 import Logo from "@/components/brand/Logo"
 import InputPassword from "@/components/forms/InputPassword"
-import axios from "axios";
-import { useRouter } from "next/navigation"
-
-const formSchema = z.object({
-    email: z.string().email("Invalid email address"),
-    password: z.string().min(1, "Password is required"),
-});
+import { useLogin } from "@/hooks/login/useLogin"
 
 export default function LogInForm() {
 
-    const router = useRouter();
-
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
-        defaultValues: {
-            email: "",
-            password: "",
-        }
-    })
-
-    const { errors } = form.formState;
-
-    async function onSubmit(values: z.infer<typeof formSchema>) {
-        const { data, error } = await authClient.signIn.email({
-            email: values.email,
-            password: values.password,
-        }, {
-            onRequest: () => {
-                toast.loading("Logging in...", { id: "login" });
-            },
-            onSuccess: () => {
-                toast.success("Logged in successfully!", { id: "login" });
-                router.push("/feed");
-            },
-            onError: (ctx) => {
-                toast.error(ctx.error.message, { id: "login" });
-            },
-        });
-    }
+    const { form, errors, onSubmit } = useLogin();
 
     return (
         <Form {...form}>
