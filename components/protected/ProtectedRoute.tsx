@@ -22,12 +22,12 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
         }
     }, [session, isPending, router]);
 
-    if (isPending) {
-        return <Spinner className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 size-8" />; // Replace with a Spinner
-    }
-
     if (error) {
         return <NotFound onClick={() => refetch()} className="fixed top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"/>
+    }
+
+    if (isPending) {
+        return <Spinner className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 size-8" />; // Replace with a Spinner
     }
 
     return session ? <>{children}</> : null;
