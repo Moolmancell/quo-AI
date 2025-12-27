@@ -4,7 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Spinner } from "@/components/ui/Spinner";
-import { NotFound } from "@/components/not found/NotFound";
+import { WentWrong } from "@/components/error/WentWrong";
 
 export function ProtectedRoute({ children }: { children: React.ReactNode }) {
     const {
@@ -23,7 +23,7 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
     }, [session, isPending, router]);
 
     if (error) {
-        return <NotFound onClick={() => refetch()} className="fixed top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"/>
+        return <WentWrong onClick={() => refetch()} className="fixed top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"/>
     }
 
     if (isPending) {

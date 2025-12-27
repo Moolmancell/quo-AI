@@ -10,7 +10,7 @@ import {
   EmptyTitle,
 } from "@/components/ui/Empty"
 
-export function NotFound({className, onClick}: {className?: string, onClick?: () => void }) {
+export function WentWrong({className, onClick}: {className?: string, onClick?: () => void }) {
   return (
     <Empty className={className}>
       <EmptyHeader>
