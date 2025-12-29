@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Toaster } from "@/components/ui/Sonner"
+import { AuthProvider } from "@/components/providers/AuthProvider";
 import { MSWProvider } from '@/mocks/MSWProvider'
 import "./globals.css";
 
@@ -45,7 +46,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MSWProvider>{children}</MSWProvider>
+          <MSWProvider>
+            <AuthProvider>
+              {children}
+            </AuthProvider>
+          </MSWProvider>
 
           <Toaster
             position="top-center"
