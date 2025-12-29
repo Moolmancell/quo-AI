@@ -1,7 +1,11 @@
 import { ProtectedRoute } from "@/components/protected/ProtectedRoute";
 
-export default function FeedPage() {
+export default function FeedLayout() {
     return <ProtectedRoute>
-        <div>Feed Page</div>
+            <div>
+                <nav>
+
+                </nav>
+            </div>
     </ProtectedRoute>;
 }
