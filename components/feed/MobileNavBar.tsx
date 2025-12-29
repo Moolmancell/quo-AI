@@ -45,7 +45,7 @@ export default function MobileNavBar() {
             />
 
             <Button variant="ghost" size="icon" className="rounded-full" asChild>
-                <Avatar className='cursor-pointer hover:ring-2 ring-offset-2 hover:ring-secondary transition-all'>
+                <Avatar className='cursor-pointer hover:ring-2 ring-offset-2 hover:ring-secondary transition-all border border-border'>
                     {mounted && <AvatarImage src={avatarUrl} alt={session?.user?.name || "User"} />}
                     <AvatarFallback>{initials}</AvatarFallback>
                 </Avatar>
