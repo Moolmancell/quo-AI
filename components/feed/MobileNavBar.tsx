@@ -37,7 +37,7 @@ export default function MobileNavBar() {
     const initials = session?.user?.name?.slice(0, 2).toUpperCase() || "??";
 
     return (
-        <nav className='bg-sidebar flex flex-row justify-between border-t rounded-t-3xl py-3.5 px-8 sm:hidden z-50'>
+        <nav className='bg-sidebar flex flex-row justify-between border-t rounded-t-3xl py-3.5 px-8'>
             <NavToggle
                 href="/feed"
                 label="Home"
