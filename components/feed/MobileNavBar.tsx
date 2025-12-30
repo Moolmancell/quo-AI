@@ -41,19 +41,19 @@ export default function MobileNavBar() {
             <NavToggle
                 href="/feed"
                 label="Home"
-                icon={<HouseIcon />}
+                icon={<HouseIcon className="size-4.5"/>}
             />
 
             <NavToggle
                 href="/feed/search"
                 label="Search"
-                icon={<SearchIcon />}
+                icon={<SearchIcon className="size-4.5"/>}
             />
 
             <NavToggle
                 href="/feed/chat"
                 label="Chat"
-                icon={<MessageCirclePlus />}
+                icon={<MessageCirclePlus className="size-4.5"/>}
             />
 
             <DropdownMenu>
