@@ -1,5 +1,6 @@
 import { ProtectedRoute } from "@/components/protected/ProtectedRoute";
 import MobileNavBar from "@/components/feed/MobileNavBar";
+import DesktopNavBar from "@/components/feed/DesktopNavBar";
 
 export default function FeedLayout({ children }: { children: React.ReactNode }) {
     return (
@@ -14,8 +15,8 @@ export default function FeedLayout({ children }: { children: React.ReactNode }) 
                     <MobileNavBar />
                 </div>
 
-                <div className="hidden sm:block fixed top-0 left-0 right-0 z-50 border-b bg-background">
-                     {/* <DesktopNavBar /> */}
+                <div className="hidden sm:block fixed top-0 left-0 right-0 z-50 bg-background">
+                     <DesktopNavBar /> 
                 </div>
             </div>
         </ProtectedRoute>
