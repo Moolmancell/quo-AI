@@ -10,7 +10,7 @@ export default function formatSmartDate(isoString: string) {
   const diffInYears = now.diff(date, 'year');
 
   if (diffInYears >= 2) {
-    return date.format('MMM D, YYYY'); // Example: "Dec 31, 2022"
+    return date.format('MMMM D, YYYY'); // Example: "December 31, 2022"
   } else {
     return date.fromNow(); // Example: "8 months ago"
   }
