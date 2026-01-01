@@ -22,11 +22,18 @@ export default function FeedPage() {
     const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
     const [feed, setFeed] = useState<any[]>([]);
     const [currentPage, setCurrentPage] = useState(0);
+    const [isFetchingMore, setIsFetchingMore] = useState(false);
     const height = typeof window !== "undefined"
         ? window.innerHeight
         : 0;
     const y = useMotionValue(0);
-    
+
+    const visibleFeed = feed.slice(
+        Math.max(0, currentPage - 1),
+        Math.min(feed.length, currentPage + 2)
+    );
+
+
     console.log(currentPage)
     console.log(feed.length)
 
@@ -65,6 +72,15 @@ export default function FeedPage() {
         }
     };
 
+    const refetchFeed = async () => {
+        try {
+            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/get-feed`);
+            setFeed((prev) => [...prev, ...res.data]);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     useEffect(() => {
         animate(y, -currentPage * window.innerHeight, {
             type: "spring",
@@ -76,6 +92,18 @@ export default function FeedPage() {
     useEffect(() => {
         fetchFeed();
     }, []);
+
+    /*useEffect(() => {
+        if (
+            currentPage >= feed.length / 2 &&
+            !isFetchingMore
+        ) {
+            setIsFetchingMore(true);
+            refetchFeed().finally(() => {
+                setIsFetchingMore(false);
+            });
+        }
+    }, [currentPage, feed.length]);*/
 
     if (status === 'loading') {
         return <Spinner className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-8" />;
@@ -93,8 +121,10 @@ export default function FeedPage() {
     return (
         <>
             <div className='hidden sm:flex flex-col gap-4 fixed right-4 top-1/2 -translate-y-1/2 z-50'>
-                <Button size="icon-lg" onClick={handlePreviousPage}><ArrowUp /></Button>
-                <Button size="icon-lg" onClick={handleNextPage}><ArrowDown /></Button>
+                <Button size="icon-lg" onClick={handlePreviousPage} disabled={currentPage <= 0}><ArrowUp /></Button>
+                <Button variant={currentPage >= feed.length-1 ? "ghost" : "default"} size="icon-lg" onClick={handleNextPage} disabled={currentPage >= feed.length-1}>
+                    {currentPage >= feed.length-1 ? <Spinner /> : <ArrowDown />}
+                </Button>
             </div>
 
             <motion.div
@@ -104,24 +134,32 @@ export default function FeedPage() {
                     top: -(feed.length - 1) * height,
                     bottom: 0,
                 }}
-                dragElastic={0.12}
+                dragElastic={{top: 0.5, bottom: 0.12}}
                 dragMomentum={false}
                 style={{ y }}
                 className="flex flex-col fixed top-0 w-full"
             >
-
-                {
-                    feed.map((item, i) => (
-                        <div
-                            key={i}
-                            className='flex flex-row items-center justify-center 
-                        w-full h-dvh p-4
-                        '
+                {visibleFeed.map((item, i) => {
+                    const index = Math.max(0, currentPage - 1) + i;
+                    console.log(visibleFeed)
+                    return (
+                        <motion.div
+                            key={index}
+                            style={{ top: index * height }}
+                            className="absolute w-full h-dvh flex items-center justify-center p-4"
                         >
                             <FeedCard {...item} />
-                        </div>
-                    ))
-                }
+                        </motion.div>
+                    );
+                })}
+                {!isFetchingMore && (
+                    <motion.div
+                        style={{ top: feed.length * height }}
+                        className="absolute w-full h-dvh flex items-center justify-center"
+                    >
+                        <Spinner className='size-8 absolute top-0'/>
+                    </motion.div>
+                )}
             </motion.div>
         </>
     );
