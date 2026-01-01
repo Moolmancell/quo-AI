@@ -93,9 +93,9 @@ export default function FeedPage() {
         fetchFeed();
     }, []);
 
-    /*useEffect(() => {
+    useEffect(() => {
         if (
-            currentPage >= feed.length / 2 &&
+            currentPage >= feed.length * 0.75 &&
             !isFetchingMore
         ) {
             setIsFetchingMore(true);
@@ -103,7 +103,7 @@ export default function FeedPage() {
                 setIsFetchingMore(false);
             });
         }
-    }, [currentPage, feed.length]);*/
+    }, [currentPage, feed.length]);
 
     if (status === 'loading') {
         return <Spinner className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-8" />;
@@ -152,7 +152,7 @@ export default function FeedPage() {
                         </motion.div>
                     );
                 })}
-                {!isFetchingMore && (
+                {isFetchingMore && (
                     <motion.div
                         style={{ top: feed.length * height }}
                         className="absolute w-full h-dvh flex items-center justify-center"
