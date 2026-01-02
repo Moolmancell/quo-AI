@@ -1,35 +1,31 @@
 "use client";
 
-import axios from 'axios';
 // Removed 'import { stat } from 'fs';' - fs doesn't work in client components
-import { useState, useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { WentWrong } from '@/components/error/WentWrong';
 import { Spinner } from '@/components/ui/Spinner';
 import { FeedCard } from '@/components/feed/FeedCard';
-import { motion, useMotionValue, animate, PanInfo } from "motion/react"
+import { motion } from "motion/react"
 import { Button } from '@/components/ui/Button';
 import { ArrowUp, ArrowDown } from 'lucide-react';
 import { useFeedData } from '@/hooks/feed/useFeedData';
 import { useFeedExtends } from '@/hooks/feed/useFeedExtends';
 import { useFeedPage } from "@/hooks/feed/useFeedPage"
-
-interface FeedContentProps {
-    datePublished: string,
-    author: string,
-    src: string,
-    publication: string,
-    quote: string
-}
+import { useFeedGesture } from '@/hooks/feed/useFeedGestures';
 
 export default function FeedPage() {
     const { feed, fetchFeed, refetchFeed, status, isFetchingMore, setIsFetchingMore } = useFeedData()
-    const { currentPage, setCurrentPage, handlePreviousPage, handleNextPage } = useFeedPage({feed});
-    const scrollLock = useRef(false);
-    const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
+    const { currentPage, setCurrentPage, handlePreviousPage, handleNextPage } = useFeedPage({ feed });
+    const { scrollTimeout, handleWheel, handleDragEnd, y } = useFeedGesture({
+        handleNextPage, 
+        handlePreviousPage, 
+        currentPage, 
+        setCurrentPage, 
+        feed
+    })
     const height = typeof window !== "undefined"
         ? window.innerHeight
         : 0;
-    const y = useMotionValue(0);
 
     const visibleFeed = feed.slice(
         Math.max(0, currentPage - 1),
@@ -38,51 +34,6 @@ export default function FeedPage() {
 
     console.log(currentPage)
     console.log(feed.length)
-
-    const handleDragEnd = (e: any, info: PanInfo) => {
-        const threshold = 100;
-        if (info.offset.y < -threshold) handleNextPage();
-        else if (info.offset.y > threshold) handlePreviousPage();
-        else animate(y, -currentPage * window.innerHeight, {
-            type: "spring",
-            stiffness: 280,
-            damping: 26,
-        })
-    };
-
-    const handleWheel = (e: WheelEvent) => {
-        if (scrollLock.current) return;
-
-        const threshold = 40;
-
-        if (e.deltaY > threshold && pageRef.current < feedLengthRef.current - 1) {
-            setCurrentPage((p) => p + 1);
-        } else if (e.deltaY < -threshold && pageRef.current > 0) {
-            setCurrentPage((p) => p - 1);
-        }
-
-        scrollLock.current = true;
-        scrollTimeout.current = setTimeout(() => {
-            scrollLock.current = false;
-        }, 450);
-    };
-
-
-    useEffect(() => {
-        animate(y, -currentPage * window.innerHeight, {
-            type: "spring",
-            stiffness: 280,
-            damping: 26,
-        });
-    }, [currentPage]);
-
-    const pageRef = useRef(currentPage);
-    const feedLengthRef = useRef(feed.length);
-
-    useEffect(() => {
-        pageRef.current = currentPage;
-        feedLengthRef.current = feed.length;
-    }, [currentPage, feed.length]);
 
     useEffect(() => {
         window.addEventListener("wheel", handleWheel, { passive: true });
