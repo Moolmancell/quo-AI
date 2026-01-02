@@ -3,7 +3,8 @@ import { Spinner } from "../ui/Spinner";
 import { FeedCard } from "./FeedCard";
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 
-export function FeedView({ handleDragEnd, currentPage, isFetchingMore, feed, y } : {
+export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore, feed, y } : {
+    className: string,
     handleDragEnd: (e: any, info: PanInfo) => void,
     currentPage: number,
     isFetchingMore: boolean,
@@ -32,7 +33,7 @@ export function FeedView({ handleDragEnd, currentPage, isFetchingMore, feed, y }
             dragElastic={{ top: 0.5, bottom: 0.12 }}
             dragMomentum={false}
             style={{ y }}
-            className="flex flex-col fixed top-0 w-full"
+            className={className}
         >
             {visibleFeed.map((item, i) => {
                 const index = Math.max(0, currentPage - 1) + i;

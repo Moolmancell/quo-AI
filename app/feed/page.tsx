@@ -69,6 +69,7 @@ export default function FeedPage() {
             />
 
             <FeedView 
+                className="flex flex-col fixed top-0 w-full"
                 handleDragEnd={handleDragEnd}
                 currentPage={currentPage}
                 isFetchingMore={isFetchingMore}
