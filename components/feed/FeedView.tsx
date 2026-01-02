@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
+import { motion, PanInfo } from "motion/react";
 import { Spinner } from "../ui/Spinner";
 import { FeedCard } from "./FeedCard";
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 
 export function FeedView({ handleDragEnd, currentPage, isFetchingMore, feed, y } : {
-    handleDragEnd: () => void,
+    handleDragEnd: (e: any, info: PanInfo) => void,
     currentPage: number,
     isFetchingMore: true,
     feed: FeedContentProps[]
