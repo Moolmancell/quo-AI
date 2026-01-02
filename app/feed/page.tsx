@@ -10,7 +10,8 @@ import { motion, useMotionValue, animate, PanInfo } from "motion/react"
 import { Button } from '@/components/ui/Button';
 import { ArrowUp, ArrowDown } from 'lucide-react';
 import { useFeedData } from '@/hooks/feed/useFeedData';
-import { useFeedExtends } from '@/hooks/feed/useFeedExtend';
+import { useFeedExtends } from '@/hooks/feed/useFeedExtends';
+import { useFeedPage } from "@/hooks/feed/useFeedPage"
 
 interface FeedContentProps {
     datePublished: string,
@@ -21,8 +22,8 @@ interface FeedContentProps {
 }
 
 export default function FeedPage() {
-    const [currentPage, setCurrentPage] = useState(0);
     const { feed, fetchFeed, refetchFeed, status, isFetchingMore, setIsFetchingMore } = useFeedData()
+    const { currentPage, setCurrentPage, handlePreviousPage, handleNextPage } = useFeedPage({feed});
     const scrollLock = useRef(false);
     const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
     const height = typeof window !== "undefined"
@@ -37,18 +38,6 @@ export default function FeedPage() {
 
     console.log(currentPage)
     console.log(feed.length)
-
-    const handleNextPage = () => {
-        if (currentPage < feed.length - 1) {
-            setCurrentPage((prev) => prev + 1)
-        }
-    }
-
-    const handlePreviousPage = () => {
-        if (currentPage > 0) {
-            setCurrentPage((prev) => prev - 1)
-        }
-    }
 
     const handleDragEnd = (e: any, info: PanInfo) => {
         const threshold = 100;
