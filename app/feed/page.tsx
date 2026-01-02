@@ -9,6 +9,7 @@ import { FeedCard } from '@/components/feed/FeedCard';
 import { motion, useMotionValue, animate, PanInfo } from "motion/react"
 import { Button } from '@/components/ui/Button';
 import { ArrowUp, ArrowDown } from 'lucide-react';
+import { useFeedData } from '@/hooks/feed/useFeedData';
 
 interface FeedContentProps {
     datePublished: string,
@@ -19,10 +20,8 @@ interface FeedContentProps {
 }
 
 export default function FeedPage() {
-    const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
-    const [feed, setFeed] = useState<any[]>([]);
     const [currentPage, setCurrentPage] = useState(0);
-    const [isFetchingMore, setIsFetchingMore] = useState(false);
+    const { feed, fetchFeed, status, isFetchingMore } = useFeedData({ currentPage })
     const scrollLock = useRef(false);
     const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
     const height = typeof window !== "undefined"
@@ -34,7 +33,6 @@ export default function FeedPage() {
         Math.max(0, currentPage - 1),
         Math.min(feed.length, currentPage + 2)
     );
-
 
     console.log(currentPage)
     console.log(feed.length)
@@ -80,28 +78,6 @@ export default function FeedPage() {
     };
 
 
-
-    const fetchFeed = async () => {
-        setStatus('loading'); // Show spinner during refresh
-        try {
-            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/get-feed`);
-            setFeed(res.data);
-            setStatus('success');
-        } catch (error) {
-            console.error(error);
-            setStatus('error');
-        }
-    };
-
-    const refetchFeed = async () => {
-        try {
-            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/get-feed`);
-            setFeed((prev) => [...prev, ...res.data]);
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
     useEffect(() => {
         animate(y, -currentPage * window.innerHeight, {
             type: "spring",
@@ -109,22 +85,6 @@ export default function FeedPage() {
             damping: 26,
         });
     }, [currentPage]);
-
-    useEffect(() => {
-        fetchFeed();
-    }, []);
-
-    useEffect(() => {
-        if (
-            currentPage >= feed.length * 0.75 &&
-            !isFetchingMore
-        ) {
-            setIsFetchingMore(true);
-            refetchFeed().finally(() => {
-                setIsFetchingMore(false);
-            });
-        }
-    }, [currentPage, feed.length]);
 
     const pageRef = useRef(currentPage);
     const feedLengthRef = useRef(feed.length);
