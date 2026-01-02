@@ -61,7 +61,7 @@ export default function FeedPage() {
             <div className='hidden sm:flex flex-col gap-4 fixed right-4 top-1/2 -translate-y-1/2 z-50'>
                 <Button size="icon-lg" onClick={handlePreviousPage} disabled={currentPage <= 0}><ArrowUp /></Button>
                 <Button variant={isFetchingMore ? "ghost" : "default"} size="icon-lg" onClick={handleNextPage} disabled={isFetchingMore}>
-                    {isFetchingMore ? <Spinner /> : <ArrowDown />}
+                    {isFetchingMore && currentPage >= feed.length-1 ? <Spinner /> : <ArrowDown />}
                 </Button>
             </div>
 
