@@ -6,7 +6,7 @@ import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 export function FeedView({ handleDragEnd, currentPage, isFetchingMore, feed, y } : {
     handleDragEnd: (e: any, info: PanInfo) => void,
     currentPage: number,
-    isFetchingMore: true,
+    isFetchingMore: boolean,
     feed: FeedContentProps[]
     y: any
 }) {
