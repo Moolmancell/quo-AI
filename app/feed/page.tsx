@@ -11,6 +11,7 @@ import { useFeedExtends } from '@/hooks/feed/useFeedExtends';
 import { useFeedPage } from "@/hooks/feed/useFeedPage"
 import { useFeedGesture } from '@/hooks/feed/useFeedGestures';
 import { FeedView } from '@/components/feed/FeedView';
+import { FeedButtons } from '@/components/feed/FeedButtons';
 
 export default function FeedPage() {
     const { feed, fetchFeed, refetchFeed, status, isFetchingMore, setIsFetchingMore } = useFeedData()
@@ -58,12 +59,14 @@ export default function FeedPage() {
 
     return (
         <>
-            <div className='hidden sm:flex flex-col gap-4 fixed right-4 top-1/2 -translate-y-1/2 z-50'>
-                <Button size="icon-lg" onClick={handlePreviousPage} disabled={currentPage <= 0}><ArrowUp /></Button>
-                <Button variant={isFetchingMore ? "ghost" : "default"} size="icon-lg" onClick={handleNextPage} disabled={isFetchingMore}>
-                    {isFetchingMore && currentPage >= feed.length-1 ? <Spinner /> : <ArrowDown />}
-                </Button>
-            </div>
+            <FeedButtons 
+                className='hidden sm:flex flex-col gap-4 fixed right-4 top-1/2 -translate-y-1/2 z-50'
+                currentPage={currentPage}
+                handleNextPage={handleNextPage}
+                handlePreviousPage={handlePreviousPage}
+                isFetchingMore={isFetchingMore}
+                feed={feed}
+            />
 
             <FeedView 
                 handleDragEnd={handleDragEnd}
