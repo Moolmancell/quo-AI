@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 // Removed 'import { stat } from 'fs';' - fs doesn't work in client components
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { WentWrong } from '@/components/error/WentWrong';
 import { Spinner } from '@/components/ui/Spinner';
 import { FeedCard } from '@/components/feed/FeedCard';
@@ -23,6 +23,8 @@ export default function FeedPage() {
     const [feed, setFeed] = useState<any[]>([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [isFetchingMore, setIsFetchingMore] = useState(false);
+    const scrollLock = useRef(false);
+    const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
     const height = typeof window !== "undefined"
         ? window.innerHeight
         : 0;
@@ -59,6 +61,25 @@ export default function FeedPage() {
             damping: 26,
         })
     };
+
+    const handleWheel = (e: WheelEvent) => {
+        if (scrollLock.current) return;
+
+        const threshold = 40;
+
+        if (e.deltaY > threshold && pageRef.current < feedLengthRef.current - 1) {
+            setCurrentPage((p) => p + 1);
+        } else if (e.deltaY < -threshold && pageRef.current > 0) {
+            setCurrentPage((p) => p - 1);
+        }
+
+        scrollLock.current = true;
+        scrollTimeout.current = setTimeout(() => {
+            scrollLock.current = false;
+        }, 450);
+    };
+
+
 
     const fetchFeed = async () => {
         setStatus('loading'); // Show spinner during refresh
@@ -105,6 +126,24 @@ export default function FeedPage() {
         }
     }, [currentPage, feed.length]);
 
+    const pageRef = useRef(currentPage);
+    const feedLengthRef = useRef(feed.length);
+
+    useEffect(() => {
+        pageRef.current = currentPage;
+        feedLengthRef.current = feed.length;
+    }, [currentPage, feed.length]);
+
+    useEffect(() => {
+        window.addEventListener("wheel", handleWheel, { passive: true });
+
+        return () => {
+            window.removeEventListener("wheel", handleWheel);
+            if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+        };
+    }, []);
+
+
     if (status === 'loading') {
         return <Spinner className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-8" />;
     }
@@ -122,8 +161,8 @@ export default function FeedPage() {
         <>
             <div className='hidden sm:flex flex-col gap-4 fixed right-4 top-1/2 -translate-y-1/2 z-50'>
                 <Button size="icon-lg" onClick={handlePreviousPage} disabled={currentPage <= 0}><ArrowUp /></Button>
-                <Button variant={currentPage >= feed.length-1 ? "ghost" : "default"} size="icon-lg" onClick={handleNextPage} disabled={currentPage >= feed.length-1}>
-                    {currentPage >= feed.length-1 ? <Spinner /> : <ArrowDown />}
+                <Button variant={isFetchingMore ? "ghost" : "default"} size="icon-lg" onClick={handleNextPage} disabled={isFetchingMore}>
+                    {isFetchingMore ? <Spinner /> : <ArrowDown />}
                 </Button>
             </div>
 
@@ -134,7 +173,7 @@ export default function FeedPage() {
                     top: -(feed.length - 1) * height,
                     bottom: 0,
                 }}
-                dragElastic={{top: 0.5, bottom: 0.12}}
+                dragElastic={{ top: 0.5, bottom: 0.12 }}
                 dragMomentum={false}
                 style={{ y }}
                 className="flex flex-col fixed top-0 w-full"
@@ -157,7 +196,7 @@ export default function FeedPage() {
                         style={{ top: feed.length * height }}
                         className="absolute w-full h-dvh flex items-center justify-center"
                     >
-                        <Spinner className='size-8 absolute top-0'/>
+                        <Spinner className='size-8 absolute top-0' />
                     </motion.div>
                 )}
             </motion.div>
