@@ -4,14 +4,13 @@
 import { useEffect } from 'react';
 import { WentWrong } from '@/components/error/WentWrong';
 import { Spinner } from '@/components/ui/Spinner';
-import { FeedCard } from '@/components/feed/FeedCard';
-import { motion } from "motion/react"
 import { Button } from '@/components/ui/Button';
 import { ArrowUp, ArrowDown } from 'lucide-react';
 import { useFeedData } from '@/hooks/feed/useFeedData';
 import { useFeedExtends } from '@/hooks/feed/useFeedExtends';
 import { useFeedPage } from "@/hooks/feed/useFeedPage"
 import { useFeedGesture } from '@/hooks/feed/useFeedGestures';
+import { FeedView } from '@/components/feed/FeedView';
 
 export default function FeedPage() {
     const { feed, fetchFeed, refetchFeed, status, isFetchingMore, setIsFetchingMore } = useFeedData()
@@ -23,14 +22,6 @@ export default function FeedPage() {
         setCurrentPage, 
         feed
     })
-    const height = typeof window !== "undefined"
-        ? window.innerHeight
-        : 0;
-
-    const visibleFeed = feed.slice(
-        Math.max(0, currentPage - 1),
-        Math.min(feed.length, currentPage + 2)
-    );
 
     console.log(currentPage)
     console.log(feed.length)
@@ -74,40 +65,13 @@ export default function FeedPage() {
                 </Button>
             </div>
 
-            <motion.div
-                drag="y"
-                onDragEnd={handleDragEnd}
-                dragConstraints={{
-                    top: -(feed.length - 1) * height,
-                    bottom: 0,
-                }}
-                dragElastic={{ top: 0.5, bottom: 0.12 }}
-                dragMomentum={false}
-                style={{ y }}
-                className="flex flex-col fixed top-0 w-full"
-            >
-                {visibleFeed.map((item, i) => {
-                    const index = Math.max(0, currentPage - 1) + i;
-                    console.log(visibleFeed)
-                    return (
-                        <motion.div
-                            key={index}
-                            style={{ top: index * height }}
-                            className="absolute w-full h-dvh flex items-center justify-center p-4"
-                        >
-                            <FeedCard {...item} />
-                        </motion.div>
-                    );
-                })}
-                {isFetchingMore && (
-                    <motion.div
-                        style={{ top: feed.length * height }}
-                        className="absolute w-full h-dvh flex items-center justify-center"
-                    >
-                        <Spinner className='size-8 absolute top-0' />
-                    </motion.div>
-                )}
-            </motion.div>
+            <FeedView 
+                handleDragEnd={handleDragEnd}
+                currentPage={currentPage}
+                isFetchingMore={isFetchingMore}
+                feed={feed}
+                y={y}
+            />
         </>
     );
 }
