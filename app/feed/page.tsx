@@ -10,6 +10,7 @@ import { motion, useMotionValue, animate, PanInfo } from "motion/react"
 import { Button } from '@/components/ui/Button';
 import { ArrowUp, ArrowDown } from 'lucide-react';
 import { useFeedData } from '@/hooks/feed/useFeedData';
+import { useFeedExtends } from '@/hooks/feed/useFeedExtend';
 
 interface FeedContentProps {
     datePublished: string,
@@ -21,7 +22,7 @@ interface FeedContentProps {
 
 export default function FeedPage() {
     const [currentPage, setCurrentPage] = useState(0);
-    const { feed, fetchFeed, status, isFetchingMore } = useFeedData({ currentPage })
+    const { feed, fetchFeed, refetchFeed, status, isFetchingMore, setIsFetchingMore } = useFeedData()
     const scrollLock = useRef(false);
     const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
     const height = typeof window !== "undefined"
@@ -103,6 +104,13 @@ export default function FeedPage() {
         };
     }, []);
 
+    useFeedExtends({
+        currentPage,
+        isFetchingMore,
+        setIsFetchingMore,
+        refetchFeed,
+        feed,
+    })
 
     if (status === 'loading') {
         return <Spinner className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-8" />;
