@@ -32,18 +32,6 @@ export function useFeedData({ currentPage } : {currentPage: number}) {
         fetchFeed();
     }, []);
 
-    useEffect(() => {
-        if (
-            currentPage >= feed.length * 0.75 &&
-            !isFetchingMore
-        ) {
-            setIsFetchingMore(true);
-            refetchFeed().finally(() => {
-                setIsFetchingMore(false);
-            });
-        }
-    }, [currentPage, feed.length]);
-
     return {
         feed,
         fetchFeed,
