@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export function useFeedData({ currentPage } : {currentPage: number}) {
+export function useFeedData() {
     const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
     const [feed, setFeed] = useState<any[]>([]);
     const [isFetchingMore, setIsFetchingMore] = useState(false);
@@ -35,7 +35,9 @@ export function useFeedData({ currentPage } : {currentPage: number}) {
     return {
         feed,
         fetchFeed,
+        refetchFeed,
         status,
-        isFetchingMore
+        isFetchingMore,
+        setIsFetchingMore
     }
 }
