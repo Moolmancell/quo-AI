@@ -20,6 +20,7 @@ import {
 import { Button } from "../ui/Button";
 import { Bookmark, SendIcon, ExternalLink, Info } from "lucide-react";
 import Link from "next/link";
+import { Toggle } from "../ui/Toggle";
 
 interface FeedCardProps {
     datePublished: string,
@@ -109,7 +110,7 @@ export function FeedCard({ datePublished, author, src, publication, quote }: Fee
             <CardFooter className="p-3">
                 <div className="w-full flex flex-row justify-between">
                     <div>
-                        <Button variant="ghost" size="icon-sm"><Bookmark /></Button>
+                        <Toggle size="sm" className="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-yellow-500 data-[state=on]:*:[svg]:stroke-yellow-500"><Bookmark /></Toggle>
                         <Button variant="ghost" size="icon-sm"><SendIcon /></Button>
                         <Button asChild variant="ghost" size="icon-sm"><Link target="_blank" href={src}><ExternalLink /></Link></Button>
                     </div>
