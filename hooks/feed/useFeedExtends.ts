@@ -1,11 +1,12 @@
 import { useEffect } from "react";
+import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 
 export function useFeedExtends({currentPage, isFetchingMore, setIsFetchingMore, refetchFeed, feed} : {
     currentPage: number,
     isFetchingMore: Boolean,
     setIsFetchingMore: any,
     refetchFeed: any,
-    feed: Object[]
+    feed: FeedContentProps[]
 }) {
     useEffect(() => {
         if (

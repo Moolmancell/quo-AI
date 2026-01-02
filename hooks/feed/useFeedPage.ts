@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 
-export function useFeedPage({feed} : {feed: Object[]}) {
+export function useFeedPage({feed} : {feed: FeedContentProps[]}) {
     const [currentPage, setCurrentPage] = useState(0);
 
     const handleNextPage = () => {

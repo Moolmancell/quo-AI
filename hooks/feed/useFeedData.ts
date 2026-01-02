@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 
 export function useFeedData() {
     const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
-    const [feed, setFeed] = useState<any[]>([]);
+    const [feed, setFeed] = useState<FeedContentProps[]>([]);
     const [isFetchingMore, setIsFetchingMore] = useState(false);
 
 
