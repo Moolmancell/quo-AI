@@ -2,8 +2,9 @@ import { motion, PanInfo } from "motion/react";
 import { Spinner } from "../ui/Spinner";
 import { FeedCard } from "./FeedCard";
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
+import { useState } from "react";
 
-export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore, feed, y } : {
+export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore, feed, y }: {
     className: string,
     handleDragEnd: (e: any, info: PanInfo) => void,
     currentPage: number,
@@ -11,6 +12,8 @@ export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore
     feed: FeedContentProps[]
     y: any
 }) {
+
+    const [bookmarkedUrls, setBookmarkedUrls] = useState<Set<string>>(new Set());
 
     const height = typeof window !== "undefined"
         ? window.innerHeight
@@ -21,6 +24,17 @@ export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore
         Math.min(feed.length, currentPage + 2)
     );
 
+    const toggleBookmark = (url: string) => {
+        setBookmarkedUrls((prev) => {
+            const next = new Set(prev);
+            if (next.has(url)) {
+                next.delete(url);
+            } else {
+                next.add(url);
+            }
+            return next;
+        });
+    };
 
     return (
         <motion.div
@@ -43,8 +57,9 @@ export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore
                         key={index}
                         style={{ top: index * height }}
                         className="absolute w-full h-dvh flex items-center justify-center p-4"
+                        onDoubleClick={() => toggleBookmark(item.src)}
                     >
-                        <FeedCard {...item} />
+                        <FeedCard {...item} isBookmarked={bookmarkedUrls.has(item.src)} toggleBookmark={toggleBookmark} />
                     </motion.div>
                 );
             })}

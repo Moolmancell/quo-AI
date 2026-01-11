@@ -21,16 +21,14 @@ import { Button } from "../ui/Button";
 import { Bookmark, SendIcon, ExternalLink, Info } from "lucide-react";
 import Link from "next/link";
 import { Toggle } from "../ui/Toggle";
+import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 
-interface FeedCardProps {
-    datePublished: string,
-    author: string,
-    src: string,
-    publication: string,
-    quote: string
+interface FeedCardProps extends FeedContentProps {
+    isBookmarked?: boolean
+    toggleBookmark: (url: string) => void
 }
 
-export function FeedCard({ datePublished, author, src, publication, quote }: FeedCardProps) {
+export function FeedCard({ datePublished, author, src, publication, quote, isBookmarked, toggleBookmark }: FeedCardProps) {
     // Initialize states as null or undefined rather than strings to make logic cleaner
     const [featuredImage, setFeaturedImage] = useState<string | null>(null);
     const [faviconImage, setFaviconImage] = useState<string | null>(null);
@@ -110,7 +108,17 @@ export function FeedCard({ datePublished, author, src, publication, quote }: Fee
             <CardFooter className="p-3">
                 <div className="w-full flex flex-row justify-between">
                     <div>
-                        <Toggle size="sm" className="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-yellow-500 data-[state=on]:*:[svg]:stroke-yellow-500"><Bookmark /></Toggle>
+                        <Toggle 
+                            size="sm" 
+                            className="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-yellow-500 data-[state=on]:*:[svg]:stroke-yellow-500"
+                            pressed={isBookmarked}
+                            onPressedChange={() => {
+                                console.log("change")
+                                toggleBookmark(src)
+                            }}
+                        >
+                            <Bookmark />
+                        </Toggle>
                         <Button variant="ghost" size="icon-sm"><SendIcon /></Button>
                         <Button asChild variant="ghost" size="icon-sm"><Link target="_blank" href={src}><ExternalLink /></Link></Button>
                     </div>
