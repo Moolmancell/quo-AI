@@ -36,6 +36,18 @@ export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore
         });
     };
 
+    const toggleBookmarkDoubleClick = (url: string) => {
+        setBookmarkedUrls((prev) => {
+            const next = new Set(prev);
+            if (next.has(url)) {
+                return next;
+            } else {
+                next.add(url);
+            }
+            return next;
+        });
+    };
+
     return (
         <motion.div
             drag="y"
@@ -57,7 +69,7 @@ export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore
                         key={index}
                         style={{ top: index * height }}
                         className="absolute w-full h-dvh flex items-center justify-center p-4"
-                        onDoubleClick={() => toggleBookmark(item.src)}
+                        onDoubleClick={() => toggleBookmarkDoubleClick(item.src)}
                     >
                         <FeedCard {...item} isBookmarked={bookmarkedUrls.has(item.src)} toggleBookmark={toggleBookmark} />
                     </motion.div>
