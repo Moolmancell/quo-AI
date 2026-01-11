@@ -3,6 +3,7 @@ import { Spinner } from "../ui/Spinner";
 import { FeedCard } from "./FeedCard";
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 import { useState } from "react";
+import { useBookmarks } from "@/hooks/feed/useBookmarks";
 
 export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore, feed, y }: {
     className: string,
@@ -13,7 +14,7 @@ export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore
     y: any
 }) {
 
-    const [bookmarkedUrls, setBookmarkedUrls] = useState<Set<string>>(new Set());
+    const { bookmarkedUrls, toggleBookmark, toggleBookmarkDoubleClick } = useBookmarks();
 
     const height = typeof window !== "undefined"
         ? window.innerHeight
@@ -23,30 +24,6 @@ export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore
         Math.max(0, currentPage - 1),
         Math.min(feed.length, currentPage + 2)
     );
-
-    const toggleBookmark = (url: string) => {
-        setBookmarkedUrls((prev) => {
-            const next = new Set(prev);
-            if (next.has(url)) {
-                next.delete(url);
-            } else {
-                next.add(url);
-            }
-            return next;
-        });
-    };
-
-    const toggleBookmarkDoubleClick = (url: string) => {
-        setBookmarkedUrls((prev) => {
-            const next = new Set(prev);
-            if (next.has(url)) {
-                return next;
-            } else {
-                next.add(url);
-            }
-            return next;
-        });
-    };
 
     return (
         <motion.div
