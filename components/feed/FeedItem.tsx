@@ -4,7 +4,7 @@ import { Bookmark } from "lucide-react";
 import { FeedCard } from "./FeedCard";
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 
-function FeedItem({ item, index, height, toggleBookmarkDoubleClick, toggleBookmark, bookmarkedUrls } : {
+export function FeedItem({ item, index, height, toggleBookmarkDoubleClick, toggleBookmark, bookmarkedUrls } : {
     item: FeedContentProps,
     index: number,
     height: number,
