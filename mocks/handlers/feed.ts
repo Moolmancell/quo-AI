@@ -22,5 +22,15 @@ export const feedHandlers = [
     return HttpResponse.json({
       faviconImageUrl: avatar
     }, { status: 200 });
+  }),
+
+  http.post(`${BASE_URL}/add-bookmark`, ({request}) => {
+    const item = request.body as any
+    return HttpResponse.json({item: item}, {status: 200})
+  }),
+
+  http.delete(`${BASE_URL}/delete-bookmark`, ({request}) => {
+    const item = request.body as any
+    return HttpResponse.json({item: item}, {status: 200})
   })
 ];
