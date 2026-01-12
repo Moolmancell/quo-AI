@@ -52,11 +52,12 @@ export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore
                         style={{ top: index * height }}
                         className="absolute w-full h-dvh flex items-center justify-center p-4"
                         onDoubleClick={() => {
-                            toggleBookmarkDoubleClick(item.src)
+                            toggleBookmarkDoubleClick(item)
                             handleBookmarkAnimation();
                         }}
                     >
-                        <FeedCard {...item} isBookmarked={bookmarkedUrls.has(item.src)} toggleBookmark={toggleBookmark} />
+                        {/*BUG: function toggle*/}
+                        <FeedCard {...item} isBookmarked={bookmarkedUrls.has(item.src)} toggleBookmark={() => toggleBookmark(item)}/>
                     </motion.div>
                 );
             })}

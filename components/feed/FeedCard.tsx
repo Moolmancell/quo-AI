@@ -25,7 +25,7 @@ import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 
 interface FeedCardProps extends FeedContentProps {
     isBookmarked?: boolean
-    toggleBookmark: (url: string) => void
+    toggleBookmark: () => void
 }
 
 export function FeedCard({ datePublished, author, src, publication, quote, isBookmarked, toggleBookmark }: FeedCardProps) {
@@ -114,7 +114,7 @@ export function FeedCard({ datePublished, author, src, publication, quote, isBoo
                             pressed={isBookmarked}
                             onPressedChange={() => {
                                 console.log("change")
-                                toggleBookmark(src)
+                                toggleBookmark()
                             }}
                         >
                             <Bookmark />
