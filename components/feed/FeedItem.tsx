@@ -9,7 +9,7 @@ export function FeedItem({ item, index, height, toggleBookmarkDoubleClick, toggl
     index: number,
     height: number,
     toggleBookmarkDoubleClick: (src: string) => void,
-    toggleBookmark: (src: string) => void,
+    toggleBookmark: () => void,
     bookmarkedUrls: any
 }) {
   const [showBookmark, setShowBookmark] = useState(false);
