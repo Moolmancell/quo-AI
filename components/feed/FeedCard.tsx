@@ -74,7 +74,7 @@ export function FeedCard({ datePublished, author, src, publication, quote, isBoo
                 <div className="overflow-hidden border bg-muted">
                     <AspectRatio ratio={4 / 3}>
                         {status === 'loading' ? (
-                            <Skeleton className="h-full w-full" />
+                            <Skeleton className="rounded-none h-full w-full" />
                         ) : status === 'error' || !featuredImage || featuredImage === 'error' ? (
                             <div className="flex h-full w-full flex-col items-center justify-center text-muted-foreground">
                                 <p className="text-xs">Image unavailable</p>
