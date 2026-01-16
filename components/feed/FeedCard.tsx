@@ -10,20 +10,16 @@ import axios from "axios";
 import { Globe } from "lucide-react";
 import {
     Card,
-    CardAction,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
-    CardTitle,
 } from "@/components/ui/Card"
 import { Button } from "../ui/Button";
-import { Bookmark, SendIcon, ExternalLink, Info } from "lucide-react";
+import { Bookmark, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { Toggle } from "../ui/Toggle";
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
-import { CopyIcon } from "lucide-react";
-
+import { ShareButton } from "./ShareButton";
 interface FeedCardProps extends FeedContentProps {
     isBookmarked?: boolean
     toggleBookmark: () => void
@@ -120,7 +116,7 @@ export function FeedCard({ datePublished, author, src, publication, quote, isBoo
                         >
                             <Bookmark />
                         </Toggle>
-                        <Button variant="ghost" size="icon-sm"><SendIcon /></Button>
+                        <ShareButton />
                     </div>
 
                     <div>
