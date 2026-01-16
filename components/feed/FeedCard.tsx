@@ -22,6 +22,7 @@ import { Bookmark, SendIcon, ExternalLink, Info } from "lucide-react";
 import Link from "next/link";
 import { Toggle } from "../ui/Toggle";
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
+import { CopyIcon } from "lucide-react";
 
 interface FeedCardProps extends FeedContentProps {
     isBookmarked?: boolean
@@ -108,8 +109,8 @@ export function FeedCard({ datePublished, author, src, publication, quote, isBoo
             <CardFooter className="p-3">
                 <div className="w-full flex flex-row justify-between">
                     <div>
-                        <Toggle 
-                            size="sm" 
+                        <Toggle
+                            size="sm"
                             className="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-yellow-500 data-[state=on]:*:[svg]:stroke-yellow-500"
                             pressed={isBookmarked}
                             onPressedChange={() => {
@@ -120,11 +121,10 @@ export function FeedCard({ datePublished, author, src, publication, quote, isBoo
                             <Bookmark />
                         </Toggle>
                         <Button variant="ghost" size="icon-sm"><SendIcon /></Button>
-                        <Button asChild variant="ghost" size="icon-sm"><Link target="_blank" href={src}><ExternalLink /></Link></Button>
                     </div>
 
                     <div>
-                        <Button variant="ghost" size="icon-sm"><Info /></Button>
+                        <Button asChild variant="ghost" size="icon-sm"><Link target="_blank" href={src}><ExternalLink /></Link></Button>
                     </div>
                 </div>
             </CardFooter>
