@@ -15,6 +15,7 @@ import { SendIcon } from 'lucide-react'
 import { CopyIcon } from 'lucide-react'
 import { Download } from 'lucide-react'
 import { Share2 } from 'lucide-react'
+import { MobileView } from 'react-device-detect'
 
 export function ShareButton() {
     return (
@@ -35,10 +36,12 @@ export function ShareButton() {
                                 <Download className='mr-2 h-4 w-4' />
                                 Download Image
                             </Button>
-                            <Button className='w-full'>
-                                <Share2 className='mr-2 h-4 w-4' />
-                                Share
-                            </Button>
+                            <MobileView>
+                                <Button className='w-full'>
+                                    <Share2 className='mr-2 h-4 w-4' />
+                                    Share
+                                </Button>
+                            </MobileView>
                             <Button variant='secondary' className='w-full'>
                                 <CopyIcon className='mr-2 h-4 w-4' />
                                 Copy Quote
