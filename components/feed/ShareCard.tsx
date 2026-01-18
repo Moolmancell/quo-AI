@@ -18,12 +18,13 @@ interface ShareCardProps extends FeedContentProps {
     faviconImage: string | null;
     featuredImage: string | null;
     className?: string;
+    ref?: any;
 }
 
-export function ShareCard({ className, datePublished, relativeTime, author, src, publication, quote, faviconImage, featuredImage } : ShareCardProps) {
+export function ShareCard({ ref, className, datePublished, relativeTime, author, src, publication, quote, faviconImage, featuredImage } : ShareCardProps) {
 
     return (
-        <Card className={`${className} font-sans rounded-none p-0 w-96 gap-0 shadow-none hover:shadow-2xl`}>
+        <Card ref={ref} className={`${className} font-sans rounded-none p-0 w-96 gap-0 shadow-none hover:shadow-2xl`}>
             {/* Header: Avatar and Metadata */}
             <CardHeader className="flex items-center gap-2.5 p-3">
                 <Avatar className='size-8'>
