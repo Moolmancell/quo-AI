@@ -29,7 +29,7 @@ interface ShareCardProps extends FeedContentProps {
 export function ShareDrawer({ datePublished, relativeTime, author, src, publication, quote, faviconImage, featuredImage }: ShareCardProps) {
 
     const cardRef = useRef<HTMLDivElement>(null);
-    const { handleShare, handleDownload } = useShareQuote();
+    const { handleShare, handleDownload, handleCopy } = useShareQuote();
 
     return (
         <Drawer>
@@ -68,7 +68,7 @@ export function ShareDrawer({ datePublished, relativeTime, author, src, publicat
                                     Share
                                 </Button>
                             </MobileView>
-                            <Button variant='secondary' className='w-full'>
+                            <Button variant='secondary' className='w-full' onClick={() =>  handleCopy(quote)}>
                                 <CopyIcon className='mr-2 h-4 w-4' />
                                 Copy Quote
                             </Button>
