@@ -27,7 +27,7 @@ interface ShareCardProps extends FeedContentProps {
 }
 
 export function ShareDrawer({ datePublished, relativeTime, author, src, publication, quote, faviconImage, featuredImage }: ShareCardProps) {
-    
+
     const cardRef = useRef<HTMLDivElement>(null);
     const { handleShare, handleDownload } = useShareQuote();
 
@@ -45,17 +45,19 @@ export function ShareDrawer({ datePublished, relativeTime, author, src, publicat
                     <div className="p-4 pb-0">
                         <div className="mt-3 flex flex-col gap-2">
                             {/* Sharing options go here */}
-                            <ShareCard
-                                ref={cardRef}
-                                datePublished={datePublished}
-                                relativeTime={relativeTime}
-                                author={author}
-                                src={src}
-                                publication={publication}
-                                quote={quote}
-                                faviconImage={faviconImage}
-                                featuredImage={featuredImage}
-                            />
+                            <div className='absolute -left-2499.75'>
+                                <ShareCard
+                                    ref={cardRef}
+                                    datePublished={datePublished}
+                                    relativeTime={relativeTime}
+                                    author={author}
+                                    src={src}
+                                    publication={publication}
+                                    quote={quote}
+                                    faviconImage={faviconImage}
+                                    featuredImage={featuredImage}
+                                />
+                            </div>
                             <Button className='w-full' onClick={() => cardRef.current && handleDownload(cardRef as React.RefObject<HTMLDivElement>)}>
                                 <Download className='mr-2 h-4 w-4' />
                                 Download Image
