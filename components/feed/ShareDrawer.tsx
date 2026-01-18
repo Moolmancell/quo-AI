@@ -40,7 +40,7 @@ export function ShareDrawer({ datePublished, relativeTime, author, src, publicat
                         <div className="mt-3 flex flex-col gap-2">
                             {/* Sharing options go here */}
                             <ShareCard
-                                className='absolute'
+                                className='absolute left-9999'
                                 datePublished={datePublished}
                                 relativeTime={relativeTime}
                                 author={author}
