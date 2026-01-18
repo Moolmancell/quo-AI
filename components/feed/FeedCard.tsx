@@ -19,7 +19,7 @@ import { Bookmark, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { Toggle } from "../ui/Toggle";
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
-import { ShareButton } from "./ShareDrawer";
+import { ShareDrawer } from "./ShareDrawer";
 interface FeedCardProps extends FeedContentProps {
     isBookmarked?: boolean
     toggleBookmark: () => void
@@ -116,7 +116,7 @@ export function FeedCard({ datePublished, author, src, publication, quote, isBoo
                         >
                             <Bookmark />
                         </Toggle>
-                        <ShareButton />
+                        <ShareDrawer />
                     </div>
 
                     <div>
