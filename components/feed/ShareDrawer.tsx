@@ -16,8 +16,15 @@ import { CopyIcon } from 'lucide-react'
 import { Download } from 'lucide-react'
 import { Share2 } from 'lucide-react'
 import { MobileView } from 'react-device-detect'
+import { ShareCard } from './ShareCard'
+import { FeedContentProps } from '@/interfaces/feed/FeedContentProps';
+interface ShareCardProps extends FeedContentProps {
+    relativeTime: string;
+    faviconImage: string | null;
+    featuredImage: string | null;
+}
 
-export function ShareDrawer() {
+export function ShareDrawer({ datePublished, relativeTime, author, src, publication, quote, faviconImage, featuredImage }: ShareCardProps) {
     return (
         <Drawer>
             <DrawerTrigger asChild>
@@ -32,6 +39,17 @@ export function ShareDrawer() {
                     <div className="p-4 pb-0">
                         <div className="mt-3 flex flex-col gap-2">
                             {/* Sharing options go here */}
+                            <ShareCard
+                                className='absolute'
+                                datePublished={datePublished}
+                                relativeTime={relativeTime}
+                                author={author}
+                                src={src}
+                                publication={publication}
+                                quote={quote}
+                                faviconImage={faviconImage}
+                                featuredImage={featuredImage}
+                            />
                             <Button className='w-full'>
                                 <Download className='mr-2 h-4 w-4' />
                                 Download Image
