@@ -17,7 +17,7 @@ import { Download } from 'lucide-react'
 import { Share2 } from 'lucide-react'
 import { MobileView } from 'react-device-detect'
 
-export function ShareButton() {
+export function ShareDrawer() {
     return (
         <Drawer>
             <DrawerTrigger asChild>
