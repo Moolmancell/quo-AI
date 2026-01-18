@@ -4,7 +4,7 @@ import { toast } from 'sonner';
 export function useShareQuote() {
     const handleShare = async (cardRef: React.RefObject<HTMLDivElement>) => {
         if (cardRef.current === null) return;
-        
+
         // Wait for images to load
         await new Promise(resolve => setTimeout(resolve, 500));
 
@@ -61,8 +61,19 @@ export function useShareQuote() {
         }
     };
 
+    const handleCopy = async (text: string) => {
+        try {
+            await navigator.clipboard.writeText(text);
+            toast.success('Quote copied to clipboard!');
+        } catch (err) {
+            console.error('Failed to copy text:', err);
+            toast.error('Failed to copy quote. Please try again.');
+        }
+    }
+
     return {
         handleShare,
-        handleDownload
+        handleDownload,
+        handleCopy
     }
 }
