@@ -19,6 +19,7 @@ import { MobileView } from 'react-device-detect'
 import { ShareCard } from './ShareCard'
 import { FeedContentProps } from '@/interfaces/feed/FeedContentProps';
 import { useRef } from 'react'
+import { useShareQuote } from '@/hooks/feed/useShareQuote'
 interface ShareCardProps extends FeedContentProps {
     relativeTime: string;
     faviconImage: string | null;
@@ -28,7 +29,8 @@ interface ShareCardProps extends FeedContentProps {
 export function ShareDrawer({ datePublished, relativeTime, author, src, publication, quote, faviconImage, featuredImage }: ShareCardProps) {
     
     const cardRef = useRef<HTMLDivElement>(null);
-    
+    const { handleShare, handleDownload } = useShareQuote();
+
     return (
         <Drawer>
             <DrawerTrigger asChild>
@@ -45,7 +47,6 @@ export function ShareDrawer({ datePublished, relativeTime, author, src, publicat
                             {/* Sharing options go here */}
                             <ShareCard
                                 ref={cardRef}
-                                className='absolute left-9999'
                                 datePublished={datePublished}
                                 relativeTime={relativeTime}
                                 author={author}
@@ -55,12 +56,12 @@ export function ShareDrawer({ datePublished, relativeTime, author, src, publicat
                                 faviconImage={faviconImage}
                                 featuredImage={featuredImage}
                             />
-                            <Button className='w-full'>
+                            <Button className='w-full' onClick={() => cardRef.current && handleDownload(cardRef as React.RefObject<HTMLDivElement>)}>
                                 <Download className='mr-2 h-4 w-4' />
                                 Download Image
                             </Button>
                             <MobileView>
-                                <Button className='w-full'>
+                                <Button className='w-full' onClick={() => cardRef.current && handleShare(cardRef as React.RefObject<HTMLDivElement>)}>
                                     <Share2 className='mr-2 h-4 w-4' />
                                     Share
                                 </Button>
