@@ -116,7 +116,16 @@ export function FeedCard({ datePublished, author, src, publication, quote, isBoo
                         >
                             <Bookmark />
                         </Toggle>
-                        <ShareDrawer />
+                        <ShareDrawer 
+                            datePublished={datePublished}
+                            relativeTime={relativeTime}
+                            author={author}
+                            src={src}
+                            publication={publication}
+                            quote={quote}
+                            faviconImage={faviconImage}
+                            featuredImage={featuredImage}
+                        />
                     </div>
 
                     <div>
