@@ -4,7 +4,7 @@ import { toast } from 'sonner';
 export function useShareQuote() {
     const handleShare = async (cardRef: React.RefObject<HTMLDivElement>) => {
         if (cardRef.current === null) return;
-
+        
         // Wait for images to load
         await new Promise(resolve => setTimeout(resolve, 500));
 
@@ -16,6 +16,7 @@ export function useShareQuote() {
 
         // Use Web Share API if supported by the browser
         if (navigator.share) {
+            toast.info('Preparing to share...');
             const blob = await (await fetch(dataUrl)).blob();
             const file = new File([blob], 'share.png', { type: 'image/png' });
 
@@ -26,9 +27,11 @@ export function useShareQuote() {
                 });
             } catch (err) {
                 console.error("Share failed", err);
+                toast.error('Sharing failed. Please try again.');
             }
         } else {
             // Fallback: Trigger a download if Share API isn't available
+            toast.error('Sharing is not supported on this browser. Downloading image instead.');
             const link = document.createElement('a');
             link.download = 'quote.png';
             link.href = dataUrl;
@@ -41,6 +44,7 @@ export function useShareQuote() {
 
         try {
             // Wait for images to load
+            toast.info('Preparing your download...');
             await new Promise(resolve => setTimeout(resolve, 500));
 
             const dataUrl = await htmlToImage.toPng(elementRef.current, {
@@ -53,6 +57,7 @@ export function useShareQuote() {
             link.click();
         } catch (err) {
             console.error('Failed to download image:', err);
+            toast.error('Failed to download image. Please try again.');
         }
     };
 
