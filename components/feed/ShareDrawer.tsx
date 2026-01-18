@@ -18,6 +18,7 @@ import { Share2 } from 'lucide-react'
 import { MobileView } from 'react-device-detect'
 import { ShareCard } from './ShareCard'
 import { FeedContentProps } from '@/interfaces/feed/FeedContentProps';
+import { useRef } from 'react'
 interface ShareCardProps extends FeedContentProps {
     relativeTime: string;
     faviconImage: string | null;
@@ -25,6 +26,9 @@ interface ShareCardProps extends FeedContentProps {
 }
 
 export function ShareDrawer({ datePublished, relativeTime, author, src, publication, quote, faviconImage, featuredImage }: ShareCardProps) {
+    
+    const cardRef = useRef<HTMLDivElement>(null);
+    
     return (
         <Drawer>
             <DrawerTrigger asChild>
@@ -40,6 +44,7 @@ export function ShareDrawer({ datePublished, relativeTime, author, src, publicat
                         <div className="mt-3 flex flex-col gap-2">
                             {/* Sharing options go here */}
                             <ShareCard
+                                ref={cardRef}
                                 className='absolute left-9999'
                                 datePublished={datePublished}
                                 relativeTime={relativeTime}
