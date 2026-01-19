@@ -1,9 +1,11 @@
+'use client';
+
 import { useEffect, useState, useCallback } from "react";
 import { useAuth } from "@/components/providers/AuthProvider";
 import axios from "axios";
 import { Spinner } from "@/components/ui/Spinner";
 import { WentWrong } from "@/components/error/WentWrong";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function InterestCheckPage() {
     const { userId } = useAuth(); 
