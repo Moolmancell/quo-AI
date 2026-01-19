@@ -5,7 +5,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { WentWrong } from "@/components/error/WentWrong";
 import { useRouter } from "next/router";
 
-export default function InterestCheckPage({ children }: { children: React.ReactNode }) {
+export default function InterestCheckPage() {
     const { userId } = useAuth(); 
     const [status, setStatus] = useState<'loading' | 'error' | 'success'>('loading');
     const [hasInterests, setHasInterests] = useState<boolean>(false);
