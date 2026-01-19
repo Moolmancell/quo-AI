@@ -1,9 +1,11 @@
+'use client';
+
 import { useEffect, useState, useCallback } from "react";
 import { useAuth } from "../providers/AuthProvider";
 import axios from "axios";
 import { Spinner } from "../ui/Spinner";
 import { WentWrong } from "../error/WentWrong";
-import { useRouter } from "next/router";   
+import { useRouter } from "next/navigation";   
 
 export function InterestCheck({ children }: { children: React.ReactNode }) {
     const { userId } = useAuth(); 
