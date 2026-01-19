@@ -22,8 +22,7 @@ export default function InterestCheckPage() {
                 `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/interests/${userId}`,
                 { signal }
             );
-
-            setHasInterests(response.data.length > 0);
+            setHasInterests(response.data.interests.length > 0);
             setStatus('success');
         } catch (err) {
             if (axios.isCancel(err)) return;
