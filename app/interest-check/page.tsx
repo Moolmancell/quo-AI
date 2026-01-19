@@ -6,6 +6,7 @@ import axios from "axios";
 import { Spinner } from "@/components/ui/Spinner";
 import { WentWrong } from "@/components/error/WentWrong";
 import { useRouter } from "next/navigation";
+import { InterestForm } from "@/components/interest_check/InterestForm";
 
 export default function InterestCheckPage() {
     const { userId } = useAuth(); 
@@ -60,10 +61,5 @@ export default function InterestCheckPage() {
         return null;
     }
 
-    return (
-        <main>
-            {/* Render interest selection component here */}
-            <p>Please select your interests to continue.</p>
-        </main>
-    );
+    return <InterestForm />;
 }
