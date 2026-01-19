@@ -40,12 +40,6 @@ export function InterestCheck({ children }: { children: React.ReactNode }) {
         return () => controller.abort();
     }, [fetchData]);
 
-    useEffect(() => {
-        if (hasInterests === false && status === 'success') {
-            router.replace('/interest-check');
-        }
-    }, [hasInterests, status, router]);
-
     if (status === 'loading' || !userId) {
         return (
             <main className="flex justify-center items-center w-full h-screen bg-background">
@@ -62,5 +56,10 @@ export function InterestCheck({ children }: { children: React.ReactNode }) {
         );
     }
 
+    if (!hasInterests) {
+        router.replace('/interest-check');
+        return null;
+    }
+    
     return <>{children}</>;
 }
