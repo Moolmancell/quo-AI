@@ -9,6 +9,9 @@ import * as z from "zod"
 import { Field } from "../ui/Field"
 import { toast } from "sonner"
 import { Skeleton } from "../ui/Skeleton"
+import axios from "axios"
+import { useRouter } from "next/navigation"
+import { useAuth } from "../providers/AuthProvider"
 
 const formSchema = z.object({
     interests: z.array(z.object({
@@ -19,9 +22,10 @@ const formSchema = z.object({
     }),
 })
 
-//TODO: Implement interest check form
 export function InterestForm() {
 
+    const { userId } = useAuth()
+    const router = useRouter()
     const [fetchingOptions, setFetchingOptions] = useState(false)
     const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true)  
     const [options, setOptions] = useState<string[]>([
@@ -35,13 +39,20 @@ export function InterestForm() {
         },
     })
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    async function onSubmit(values: z.infer<typeof formSchema>) {
         try {
             console.log("Submitted Interests:", values)
+            const response = await axios.post(
+                `${process.env.NEXT_PUBLIC_API_URL}/api/submit-interests/${userId}`, 
+                { interests: values.interests.map((interest) => interest.data) }
+            )
+            console.log("Response:", response)
+            //TODO: Remove comment below to enable navigation
+            //router.push('/feed')
         } catch (error) {
-            console.log()
+            console.error("Error submitting interests:", error)
+            toast.error("An error occurred while submitting your interests.")
         }
-        // TODO: create API call to submit interests
     }
 
     function generateOptions() {
