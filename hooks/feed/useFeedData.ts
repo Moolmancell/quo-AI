@@ -11,7 +11,7 @@ export function useFeedData() {
     const fetchFeed = async () => {
         setStatus('loading'); // Show spinner during refresh
         try {
-            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/get-feed`);
+            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/get-feed`);
             setFeed(res.data);
             setStatus('success');
         } catch (error) {
@@ -22,7 +22,7 @@ export function useFeedData() {
 
     const refetchFeed = async () => {
         try {
-            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/get-feed`);
+            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/get-feed`);
             setFeed((prev) => [...prev, ...res.data]);
         } catch (error) {
             console.error(error);

@@ -34,12 +34,13 @@ export function FeedCard({ datePublished, author, src, publication, quote, isBoo
     const relativeTime = formatSmartDate(datePublished);
 
     useEffect(() => {
+        //TODO: Transfer into seperate hook
         const fetchData = async () => {
             try {
                 setStatus('loading');
                 const [imgRes, favRes] = await Promise.all([
-                    axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/get-featured-image`, { params: { url: src } }),
-                    axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/get-favicon-image`, { params: { url: src } })
+                    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/get-featured-image`, { params: { url: src } }),
+                    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/get-favicon-image`, { params: { url: src } })
                 ]);
                 setFeaturedImage(imgRes.data.featuredImageUrl || 'error');
                 setFaviconImage(favRes.data.faviconImageUrl || 'error');

@@ -2,7 +2,7 @@ import { http, HttpResponse } from 'msw';
 import feedData from '../data/feed.json';
 import { getDiceBearAvatar } from '@/lib/dicebear';
 
-const BASE_URL = `${process.env.NEXT_PUBLIC_API_BASE_URL}/api`;
+const BASE_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
 
 export const feedHandlers = [
   http.get(`${BASE_URL}/get-feed`, () => {
