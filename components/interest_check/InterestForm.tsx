@@ -27,7 +27,6 @@ export function InterestForm() {
     const { userId } = useAuth()
     const router = useRouter()
     const [fetchingOptions, setFetchingOptions] = useState(false)
-    const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true)  
     const [options, setOptions] = useState<string[]>([
         "Programming", "Religion", "Technology", "Science", "Art", "Design", "Gaming"
     ])
@@ -38,6 +37,8 @@ export function InterestForm() {
             interests: [],
         },
     })
+
+    const { isValid } = form.formState
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         try {
@@ -55,6 +56,11 @@ export function InterestForm() {
         }
     }
 
+    function onError() {
+        const count = form.getValues("interests").length;
+        toast.info(`Please select ${5 - count} more interest(s) to continue.`);
+    }
+
     function generateOptions() {
         //TODO: fetch options from API
         setOptions((prev) => [...prev, "Music", "Travel", "Sports", "Cooking", "Fitness", "Movies"] )
@@ -66,7 +72,7 @@ export function InterestForm() {
                 <h2 className="font-semibold text-3xl text-center">Choose Interests</h2>
                 <p className="pt-4 text-center">Choose 5 of your interests to see more of what matters to you.</p>
             </div>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col justify-between w-full h-full max-w-96">
+            <form onSubmit={form.handleSubmit(onSubmit, onError)} className="flex flex-col justify-between w-full h-full max-w-96">
                 <Controller
                     name="interests"
                     control={form.control}
@@ -89,8 +95,6 @@ export function InterestForm() {
                                                 next = current.filter((value) => value.index !== index)
                                             }
                                             field.onChange(next)
-
-                                            setSubmitButtonDisabled(next.length < 5)
                                         }}
                                     >
                                         {option}
@@ -110,13 +114,7 @@ export function InterestForm() {
                     <Button
                         size='lg'
                         type="submit"
-                        className={submitButtonDisabled ? "cursor-not-allowed opacity-50" : ""}
-                        onClick={() => {
-                            const values = form.getValues();
-                            if (values.interests.length < 5) {
-                                toast.info(`Please select ${5 - values.interests.length} more interest(s) to continue.`);
-                            }
-                        }}
+                        className={isValid ? "" : "cursor-not-allowed opacity-50"}
                     >
                         Continue
                         <ChevronRight />
