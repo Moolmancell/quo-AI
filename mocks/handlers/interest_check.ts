@@ -8,7 +8,7 @@ export const interestCheckHandlers = [
 
   http.get(`${BASE_URL}/interests/:userID`, () => {
     //NOTE: for no interests selected, return empty array
-    return HttpResponse.json({ interests: [] }, { status: 200 });
+    return HttpResponse.json({ interests: ["Something"] }, { status: 200 });
   }),
 
   http.post(`${BASE_URL}/submit-interests/:userID`, async ({ request }) => {
