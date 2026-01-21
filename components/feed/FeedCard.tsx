@@ -20,6 +20,7 @@ import Link from "next/link";
 import { Toggle } from "../ui/Toggle";
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 import { ShareDrawer } from "./ShareDrawer";
+import { useFeedCardImages } from "@/hooks/feed/useFeedCardImages";
 interface FeedCardProps extends FeedContentProps {
     isBookmarked?: boolean
     toggleBookmark: () => void
@@ -27,32 +28,9 @@ interface FeedCardProps extends FeedContentProps {
 
 export function FeedCard({ datePublished, author, src, publication, quote, isBookmarked, toggleBookmark }: FeedCardProps) {
     // Initialize states as null or undefined rather than strings to make logic cleaner
-    const [featuredImage, setFeaturedImage] = useState<string | null>(null);
-    const [faviconImage, setFaviconImage] = useState<string | null>(null);
-    const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
+    const { featuredImage, faviconImage, status } = useFeedCardImages(src);
 
     const relativeTime = formatSmartDate(datePublished);
-
-    useEffect(() => {
-        //TODO: Transfer into seperate hook
-        const fetchData = async () => {
-            try {
-                setStatus('loading');
-                const [imgRes, favRes] = await Promise.all([
-                    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/get-featured-image`, { params: { url: src } }),
-                    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/get-favicon-image`, { params: { url: src } })
-                ]);
-                setFeaturedImage(imgRes.data.featuredImageUrl || 'error');
-                setFaviconImage(favRes.data.faviconImageUrl || 'error');
-                setStatus('success');
-            } catch (error) {
-                console.error('Error fetching card data:', error);
-                setStatus('error');
-            }
-        };
-
-        fetchData();
-    }, [src]);
 
     return (
         <Card className="font-sans border rounded-3xl w-full p-0 max-w-96 gap-0 shadow-none hover:shadow-2xl">
@@ -87,8 +65,6 @@ export function FeedCard({ datePublished, author, src, publication, quote, isBoo
                                 fill
                                 className="transition-opacity duration-300"
                                 style={{ objectFit: 'cover' }}
-                                // Optional: handle broken individual images
-                                onError={() => setFeaturedImage('error')}
                             />
                         )}
                     </AspectRatio>
