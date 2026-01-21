@@ -44,12 +44,11 @@ export function InterestForm() {
         try {
             console.log("Submitted Interests:", values)
             const response = await axios.post(
-                `${process.env.NEXT_PUBLIC_API_URL}/api/submit-interests/${userId}`, 
+                `${process.env.NEXT_PUBLIC_API_URL}/api/submit-interests/${userId}`,
                 { interests: values.interests.map((interest) => interest.data) }
             )
             console.log("Response:", response)
-            //TODO: Remove comment below to enable navigation
-            //router.push('/feed')
+            router.push('/feed')
         } catch (error) {
             console.error("Error submitting interests:", error)
             toast.error("An error occurred while submitting your interests.")
@@ -61,9 +60,16 @@ export function InterestForm() {
         toast.info(`Please select ${5 - count} more interest(s) to continue.`);
     }
 
-    function generateOptions() {
-        //TODO: fetch options from API
-        setOptions((prev) => [...prev, "Music", "Travel", "Sports", "Cooking", "Fitness", "Movies"] )
+    async function generateOptions(topic: string) {
+        try {
+            setFetchingOptions(true)
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/generate-interests?topic=${topic}`)
+            const newOptions: string[] = response.data.interests
+            setFetchingOptions(false)
+            setOptions((prev) => [...prev, ...newOptions])
+        } catch (err) {
+            console.error(err)
+        }
     }
 
     return (
@@ -79,6 +85,7 @@ export function InterestForm() {
                     render={({ field }) => (
                         <Field>
                             <div className="flex flex-wrap flex-row gap-x-2 gap-y-2 w-full">
+                                {/*TODO: Add topics by inputing/typing it */}
                                 {options.map((option, index) => (
                                     <Toggle
                                         key={index}
@@ -89,8 +96,8 @@ export function InterestForm() {
                                             const current = field.value
                                             let next
                                             if (pressed) {
-                                                next = [...current, {data: option, index: index}]
-                                                generateOptions()
+                                                next = [...current, { data: option, index: index }]
+                                                generateOptions(option)
                                             } else {
                                                 next = current.filter((value) => value.index !== index)
                                             }
@@ -100,12 +107,12 @@ export function InterestForm() {
                                         {option}
                                     </Toggle>
                                 ))}
-                                {fetchingOptions && <Skeleton className="w-24 h-10"/>}
-                                {fetchingOptions && <Skeleton className="w-32 h-10"/>}
-                                {fetchingOptions && <Skeleton className="w-16 h-10"/>}
-                                {fetchingOptions && <Skeleton className="w-12 h-10"/>}
-                                {fetchingOptions && <Skeleton className="w-20 h-10"/>}
-                                {fetchingOptions && <Skeleton className="w-18 h-10"/>}
+                                {fetchingOptions && <Skeleton className="w-24 h-10" />}
+                                {fetchingOptions && <Skeleton className="w-32 h-10" />}
+                                {fetchingOptions && <Skeleton className="w-16 h-10" />}
+                                {fetchingOptions && <Skeleton className="w-12 h-10" />}
+                                {fetchingOptions && <Skeleton className="w-20 h-10" />}
+                                {fetchingOptions && <Skeleton className="w-18 h-10" />}
                             </div>
                         </Field>
                     )}
