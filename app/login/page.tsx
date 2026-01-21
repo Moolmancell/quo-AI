@@ -2,7 +2,8 @@ import LogInForm from "@/components/login/LogInForm"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { ProtectedRoute } from "@/components/protected/ProtectedRoute"
-
+//TODO: Add Google invisible recaptcha v3 to the login form
+//TODO: Add Google OAuth login option
 export default function LogIn() {
     return <ProtectedRoute reverse>
         <main className="relativefont-sans min-h-screen flex flex-col items-center justify-center p-4">
