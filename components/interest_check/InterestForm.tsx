@@ -12,6 +12,7 @@ import { Skeleton } from "../ui/Skeleton"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import { useAuth } from "../providers/AuthProvider"
+import { InputInterest } from "./InputInterest"
 
 const formSchema = z.object({
     interests: z.array(z.object({
@@ -23,7 +24,7 @@ const formSchema = z.object({
 })
 
 export function InterestForm() {
-
+    //TODO: refactor code to follow SOLID principles
     const { userId } = useAuth()
     const router = useRouter()
     const [fetchingOptions, setFetchingOptions] = useState(false)
@@ -62,6 +63,7 @@ export function InterestForm() {
 
     async function generateOptions(topic: string) {
         try {
+            {/*TODO: if the topic is already selected before do not call the API */}
             setFetchingOptions(true)
             const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/generate-interests?topic=${topic}`)
             const newOptions: string[] = response.data.interests
@@ -84,8 +86,10 @@ export function InterestForm() {
                     control={form.control}
                     render={({ field }) => (
                         <Field>
+                            <InputInterest onEnter={(value: string) => {
+                                if (value !== '') setOptions((prev) => [...prev, value]);
+                            }} />
                             <div className="flex flex-wrap flex-row gap-x-2 gap-y-2 w-full">
-                                {/*TODO: Add topics by inputing/typing it */}
                                 {options.map((option, index) => (
                                     <Toggle
                                         key={index}
