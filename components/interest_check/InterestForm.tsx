@@ -25,10 +25,10 @@ const formSchema = z.object({
 })
 
 export function InterestForm() {
-    //TODO: refactor code to follow SOLID principles
+    
     const { userId } = useAuth()
     const router = useRouter()
-    const { options, isFetching, fetchNewOptions, submitInterests, setOptions } = useInterests()
+    const { options, isFetching, fetchNewOptions, setOptions } = useInterests()
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
