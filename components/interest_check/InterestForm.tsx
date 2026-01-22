@@ -13,6 +13,7 @@ import axios from "axios"
 import { useRouter } from "next/navigation"
 import { useAuth } from "../providers/AuthProvider"
 import { InputInterest } from "./InputInterest"
+import { useInterests } from "../../hooks/interest_check/useInterest"
 
 const formSchema = z.object({
     interests: z.array(z.object({
@@ -27,11 +28,7 @@ export function InterestForm() {
     //TODO: refactor code to follow SOLID principles
     const { userId } = useAuth()
     const router = useRouter()
-    const [fetchingOptions, setFetchingOptions] = useState(false)
-    const [options, setOptions] = useState<string[]>([
-        "Programming", "Religion", "Technology", "Science", "Art", "Design", "Gaming"
-    ])
-
+    const { options, isFetching, fetchNewOptions, submitInterests, setOptions } = useInterests()
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -61,18 +58,6 @@ export function InterestForm() {
         toast.info(`Please select ${5 - count} more interest(s) to continue.`);
     }
 
-    async function generateOptions(topic: string) {
-        try {
-            {/*TODO: if the topic is already selected before do not call the API */}
-            setFetchingOptions(true)
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/generate-interests?topic=${topic}`)
-            const newOptions: string[] = response.data.interests
-            setFetchingOptions(false)
-            setOptions((prev) => [...prev, ...newOptions])
-        } catch (err) {
-            console.error(err)
-        }
-    }
 
     return (
         <main className="flex flex-col items-center gap-12 w-full h-screen pt-12 px-6">
@@ -101,7 +86,7 @@ export function InterestForm() {
                                             let next
                                             if (pressed) {
                                                 next = [...current, { data: option, index: index }]
-                                                generateOptions(option)
+                                                fetchNewOptions(option)
                                             } else {
                                                 next = current.filter((value) => value.index !== index)
                                             }
@@ -111,12 +96,12 @@ export function InterestForm() {
                                         {option}
                                     </Toggle>
                                 ))}
-                                {fetchingOptions && <Skeleton className="w-24 h-10" />}
-                                {fetchingOptions && <Skeleton className="w-32 h-10" />}
-                                {fetchingOptions && <Skeleton className="w-16 h-10" />}
-                                {fetchingOptions && <Skeleton className="w-12 h-10" />}
-                                {fetchingOptions && <Skeleton className="w-20 h-10" />}
-                                {fetchingOptions && <Skeleton className="w-18 h-10" />}
+                                {isFetching && <Skeleton className="w-24 h-10" />}
+                                {isFetching && <Skeleton className="w-32 h-10" />}
+                                {isFetching && <Skeleton className="w-16 h-10" />}
+                                {isFetching && <Skeleton className="w-12 h-10" />}
+                                {isFetching && <Skeleton className="w-20 h-10" />}
+                                {isFetching && <Skeleton className="w-18 h-10" />}
                             </div>
                         </Field>
                     )}
