@@ -22,9 +22,5 @@ export function useInterests() {
     }
   };
 
-  const submitInterests = async (userId: string, interests: string[]) => {
-    return axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/submit-interests/${userId}`, { interests });
-  };
-
-  return { options, isFetching, fetchNewOptions, submitInterests, setOptions };
+  return { options, isFetching, fetchNewOptions, setOptions };
 }
