@@ -4,6 +4,7 @@ import { getDiceBearAvatar } from '@/lib/dicebear';
 
 const BASE_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
 
+//TODO: Change API endpoints to match those in src/app.ts (quo-ai-backend) when created
 export const feedHandlers = [
   http.get(`${BASE_URL}/get-feed`, () => {
     return HttpResponse.json(feedData, { status: 200 });

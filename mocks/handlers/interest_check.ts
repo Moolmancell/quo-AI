@@ -6,6 +6,7 @@ const BASE_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
 
 export const interestCheckHandlers = [
 
+  //TODO: Change API endpoints to match those in src/app.ts (quo-ai-backend) when created
   http.get(`${BASE_URL}/interests/:userID`, () => {
     //NOTE: for no interests selected, return empty array
     return HttpResponse.json({ interests: ["Something"] }, { status: 200 });
