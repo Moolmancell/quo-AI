@@ -13,7 +13,7 @@ export function useInterests() {
     setIsFetching(true);
     try {
       const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/generate-interests?topic=${topic}`);
-      setOptions((prev) => [...new Set([...prev, ...data.interests])]);
+      setOptions((prev) => [...prev, ...data.interests]);
       setFetchedTopics((prev) => new Set(prev).add(topic));
     } catch (err) {
       console.error(err);
