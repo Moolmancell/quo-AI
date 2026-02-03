@@ -19,7 +19,7 @@ export function InterestCheck({ children }: { children: React.ReactNode }) {
         setStatus('loading');
         try {
             const response = await axios.get(
-                `${process.env.NEXT_PUBLIC_API_URL}/api/interests/${userId}`,
+                `${process.env.NEXT_PUBLIC_API_URL}/api/interests/get-interests`,
                 { signal }
             );
 

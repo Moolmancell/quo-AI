@@ -20,7 +20,7 @@ export default function InterestCheckPage() {
         setStatus('loading');
         try {
             const response = await axios.get(
-                `${process.env.NEXT_PUBLIC_API_URL}/api/interests/${userId}`,
+                `${process.env.NEXT_PUBLIC_API_URL}/api/interests/get-interests`,
                 { signal }
             );
             setHasInterests(response.data.interests.length > 0);

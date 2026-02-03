@@ -26,7 +26,6 @@ const formSchema = z.object({
 
 export function InterestForm() {
     
-    const { userId } = useAuth()
     const router = useRouter()
     const { options, isFetching, fetchNewOptions, setOptions } = useInterests()
     const form = useForm<z.infer<typeof formSchema>>({
@@ -42,7 +41,7 @@ export function InterestForm() {
         try {
             console.log("Submitted Interests:", values)
             const response = await axios.post(
-                `${process.env.NEXT_PUBLIC_API_URL}/api/submit-interests/${userId}`,
+                `${process.env.NEXT_PUBLIC_API_URL}/api/interests/submit-interests`,
                 { interests: values.interests.map((interest) => interest.data) }
             )
             console.log("Response:", response)
@@ -86,7 +85,8 @@ export function InterestForm() {
                                             let next
                                             if (pressed) {
                                                 next = [...current, { data: option, index: index }]
-                                                fetchNewOptions(option)
+                                                //NOTE: Uncomment only when generating new options is available
+                                                //fetchNewOptions(option)
                                             } else {
                                                 next = current.filter((value) => value.index !== index)
                                             }
