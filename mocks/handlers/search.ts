@@ -5,9 +5,9 @@ const BASE_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
 
 //TODO: Change API endpoints to match those in src/app.ts (quo-ai-backend) when created
 export const searchHandlers = [
-    http.get(`${BASE_URL}/get-recent-searches`, () => {
+    http.get(`${BASE_URL}/get-recent-searches`, async () => {
         
-        setTimeout(() => null, 1000); // Simulate network delay
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
         
         return HttpResponse.json([
             "Philosophy",
