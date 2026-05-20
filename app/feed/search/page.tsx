@@ -39,7 +39,7 @@ export default function SearchPage() {
                 {status === "loading" && (
                     <div className="flex flex-wrap gap-2">
                         {Array.from({ length: 8 }).map((_, i) => (
-                            <Skeleton key={i} className="h-8 w-20 rounded-lg" />
+                            <Skeleton key={i} className="h-6 w-20 rounded-lg" />
                         ))}
                     </div>
                 )}
@@ -62,7 +62,7 @@ export default function SearchPage() {
                                     key={search}
                                     variant="secondary"
                                     size="sm"
-                                    className="h-8 px-4 rounded-lg text-xs font-semibold bg-[#EFEBE7] hover:bg-[#E5E1DD] text-[#282F3E] border-none shadow-none transition-colors"
+                                    className="h-6 px-2 rounded-[8px] text-xs font-semibold bg-[#EFEBE7] hover:bg-[#E5E1DD] text-[#282F3E] border-none shadow-none transition-colors"
                                 >
                                     {search}
                                 </Button>
