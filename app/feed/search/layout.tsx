@@ -15,7 +15,7 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
         const query = formData.get("q");
         
         if (typeof query === "string" && query.trim()) {
-            router.push(`/feed/search/search-results?q=${encodeURIComponent(query)}`);
+            router.push(`/feed/search?q=${encodeURIComponent(query)}`);
         }
     };
 
