@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from 'react'
 import { Button } from '../ui/Button'
-import { Toggle } from '../ui/Toggle'
+import { useRouter } from 'next/navigation'
 import { HouseIcon, SearchIcon, MessageCirclePlus, Cog, BookmarkIcon, LogOutIcon } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar"
 import { useAuth } from '../providers/AuthProvider'
@@ -28,6 +28,8 @@ export default function DesktopNavBar() {
     const [mounted, setMounted] = useState(false);
     const { session } = useAuth();
     const { theme, setTheme } = useTheme();
+
+    const router = useRouter();
 
     useEffect(() => {
         setMounted(true);
@@ -63,7 +65,12 @@ export default function DesktopNavBar() {
                     />
 
                     <div className="relative w-full">
-                        <form action="/feed/search">
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                            const formData = new FormData(e.currentTarget);
+                            const query = formData.get("q") as string;
+                            router.push(`/feed/search?q=${encodeURIComponent(query)}`);
+                        }}>
                             <Search className="absolute size-4 z-10 top-1/2 left-2.5 transform -translate-y-1/2 text-muted-foreground" />
                             <Input
                                 type="text"
