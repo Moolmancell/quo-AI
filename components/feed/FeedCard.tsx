@@ -20,15 +20,13 @@ import Link from "next/link";
 import { Toggle } from "../ui/Toggle";
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 import { ShareDrawer } from "./ShareDrawer";
-import { useFeedCardImages } from "@/hooks/feed/useFeedCardImages";
 interface FeedCardProps extends FeedContentProps {
     isBookmarked?: boolean
     toggleBookmark: () => void
 }
 
-export function FeedCard({ datePublished, author, src, publication, quote, isBookmarked, toggleBookmark }: FeedCardProps) {
+export function FeedCard({ datePublished, author, src, publication, quote, thumbnail, favicon, isBookmarked, toggleBookmark }: FeedCardProps) {
     // Initialize states as null or undefined rather than strings to make logic cleaner
-    const { featuredImage, faviconImage, status } = useFeedCardImages(src);
 
     const relativeTime = formatSmartDate(datePublished);
 
@@ -37,7 +35,7 @@ export function FeedCard({ datePublished, author, src, publication, quote, isBoo
             {/* Header: Avatar and Metadata */}
             <CardHeader className="flex items-center gap-2.5 p-3">
                 <Avatar className='size-8'>
-                    <AvatarImage src={faviconImage || ""} alt={publication} />
+                    <AvatarImage src={favicon || ""} alt={publication} />
                     <AvatarFallback><Globe className="size-4 text-muted" /></AvatarFallback>
                 </Avatar>
                 <div>
@@ -51,22 +49,14 @@ export function FeedCard({ datePublished, author, src, publication, quote, isBoo
             <CardContent className="p-0">
                 {/* Featured Image Section */}
                 <div className="overflow-hidden border bg-muted">
-                    <AspectRatio ratio={4 / 3}>
-                        {status === 'loading' ? (
-                            <Skeleton className="rounded-none h-full w-full" />
-                        ) : status === 'error' || !featuredImage || featuredImage === 'error' ? (
-                            <div className="flex h-full w-full flex-col items-center justify-center text-muted-foreground">
-                                <p className="text-xs">Image unavailable</p>
-                            </div>
-                        ) : (
+                    <AspectRatio ratio={4 / 3}>                   
                             <Image
-                                src={featuredImage}
+                                src={thumbnail}
                                 alt="Featured Image"
                                 fill
                                 className="transition-opacity duration-300"
                                 style={{ objectFit: 'cover' }}
                             />
-                        )}
                     </AspectRatio>
                 </div>
 
@@ -100,8 +90,8 @@ export function FeedCard({ datePublished, author, src, publication, quote, isBoo
                             src={src}
                             publication={publication}
                             quote={quote}
-                            faviconImage={faviconImage}
-                            featuredImage={featuredImage}
+                            favicon={favicon}
+                            thumbnail={thumbnail}
                         />
                     </div>
 

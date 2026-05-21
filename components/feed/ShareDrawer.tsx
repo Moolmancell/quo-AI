@@ -22,11 +22,9 @@ import { useRef } from 'react'
 import { useShareQuote } from '@/hooks/feed/useShareQuote'
 interface ShareCardProps extends FeedContentProps {
     relativeTime: string;
-    faviconImage: string | null;
-    featuredImage: string | null;
 }
 
-export function ShareDrawer({ datePublished, relativeTime, author, src, publication, quote, faviconImage, featuredImage }: ShareCardProps) {
+export function ShareDrawer({ datePublished, relativeTime, author, src, publication, quote, favicon, thumbnail }: ShareCardProps) {
 
     const cardRef = useRef<HTMLDivElement>(null);
     const { handleShare, handleDownload, handleCopy } = useShareQuote();
@@ -54,8 +52,8 @@ export function ShareDrawer({ datePublished, relativeTime, author, src, publicat
                                     src={src}
                                     publication={publication}
                                     quote={quote}
-                                    faviconImage={faviconImage}
-                                    featuredImage={featuredImage}
+                                    favicon={favicon}
+                                    thumbnail={thumbnail}
                                 />
                             </div>
                             <Button className='w-full' onClick={() => cardRef.current && handleDownload(cardRef as React.RefObject<HTMLDivElement>)}>

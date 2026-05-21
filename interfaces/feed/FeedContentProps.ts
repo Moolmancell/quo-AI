@@ -3,5 +3,7 @@ export interface FeedContentProps {
     author: string,
     src: string,
     publication: string,
-    quote: string
+    quote: string,
+    favicon: string,
+    thumbnail: string
 }
