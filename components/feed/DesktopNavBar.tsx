@@ -85,12 +85,10 @@ export default function DesktopNavBar() {
             <div className='flex flex-row justify-center items-center'>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="rounded-full" asChild>
-                            <Avatar className='size-8 cursor-pointer hover:ring-2 ring-offset-2 hover:ring-secondary transition-all border border-border'>
-                                {mounted && <AvatarImage src={avatarUrl} alt={session?.user?.name || "User"} />}
-                                <AvatarFallback>{initials}</AvatarFallback>
-                            </Avatar>
-                        </Button>
+                        <Avatar className='size-8 cursor-pointer hover:ring-2 ring-offset-2 hover:ring-secondary transition-all border border-border rounded-full outline-none'>
+                            {mounted && <AvatarImage src={avatarUrl} alt={session?.user?.name || "User"} />}
+                            <AvatarFallback>{initials}</AvatarFallback>
+                        </Avatar>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="rounded-2xl w-56 -translate-x-4 translate-y-6">
                         <DropdownMenuLabel>Account</DropdownMenuLabel>
@@ -99,7 +97,7 @@ export default function DesktopNavBar() {
                             <DropdownMenuItem><BookmarkIcon /> Collections</DropdownMenuItem>
                             <DropdownMenuItem><Cog />Settings</DropdownMenuItem>
                         </DropdownMenuGroup>
-                        <DropdownMenuSeparator />
+                        <DropdownMenuSeparator className='h-[.5px]'/>
                         <DropdownMenuLabel>Theme</DropdownMenuLabel>
                         <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
                             <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>
