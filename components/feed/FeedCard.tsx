@@ -20,6 +20,7 @@ import Link from "next/link";
 import { Toggle } from "../ui/Toggle";
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 import { ShareDrawer } from "./ShareDrawer";
+import { Thumbnail } from "./Thumbnail";
 interface FeedCardProps extends FeedContentProps {
     isBookmarked?: boolean
     toggleBookmark: () => void
@@ -36,7 +37,7 @@ export function FeedCard({ datePublished, author, src, publication, quote, thumb
             <CardHeader className="flex items-center gap-2.5 p-3">
                 <Avatar className='size-8'>
                     <AvatarImage src={favicon || ""} alt={publication} />
-                    <AvatarFallback><Globe className="size-4 text-muted" /></AvatarFallback>
+                    <AvatarFallback><Globe className="size-4 text-muted-foreground" /></AvatarFallback>
                 </Avatar>
                 <div>
                     <h2 className="text-xs sm:text-sm font-medium text-foreground mb-1 leading-none">{author}</h2>
@@ -49,15 +50,7 @@ export function FeedCard({ datePublished, author, src, publication, quote, thumb
             <CardContent className="p-0">
                 {/* Featured Image Section */}
                 <div className="overflow-hidden border bg-muted">
-                    <AspectRatio ratio={4 / 3}>                   
-                            <Image
-                                src={thumbnail}
-                                alt="Featured Image"
-                                fill
-                                className="transition-opacity duration-300"
-                                style={{ objectFit: 'cover' }}
-                            />
-                    </AspectRatio>
+                    <Thumbnail src={thumbnail} favicon={favicon} />
                 </div>
 
                 {/* Content Section */}
