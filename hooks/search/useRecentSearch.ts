@@ -13,7 +13,7 @@ export function useRecentSearch() {
         setStatus("loading");
         try {
             const { data } = await axios.get<string[]>(
-                `${process.env.NEXT_PUBLIC_API_URL}/api/get-recent-searches`
+                `${process.env.NEXT_PUBLIC_API_URL}/api/search/get-recent-searches`
             );
             
             setRecentSearches(Array.isArray(data) ? data : []);
@@ -28,5 +28,23 @@ export function useRecentSearch() {
         fetchRecentSearches();
     }, [fetchRecentSearches]);
 
-    return { recentSearches, status, refetch: fetchRecentSearches };
+    const deleteSearch = useCallback(async (search: string) => {
+        try {
+            setRecentSearches((prev) => prev.filter((s) => s !== search));
+            await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/search/remove-recent-search`, { data: { search } });
+        } catch (error) {
+            console.error("Error deleting search:", error);
+        }
+    }, []);
+
+    const clearSearches = useCallback(async () => {
+        try {
+            setRecentSearches([]);
+            await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/search/clear-recent-search`);
+        } catch (error) {
+            console.error("Error clearing searches:", error);
+        }
+    }, []);
+
+    return { recentSearches, status, refetch: fetchRecentSearches, deleteSearch, clearSearches };
 }
