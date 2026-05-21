@@ -10,8 +10,9 @@ const nextConfig: NextConfig = {
       {
         protocol: 'http',
         hostname: '**', // Matches any domain
-      }
+      },
     ],
+    unoptimized: true, // Disable Next.js's built-in image optimization
   },
 };
 
