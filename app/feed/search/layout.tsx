@@ -3,6 +3,9 @@
 import { Search } from "lucide-react"
 import { Input } from "@/components/ui/Input"
 import { useRouter, useSearchParams } from "next/navigation"
+import { Button } from "@/components/ui/Button";
+import { SearchIcon } from "lucide-react";
+import { XIcon } from "lucide-react";
 
 export default function SearchLayout({ children }: { children: React.ReactNode }) {
     const router = useRouter();
@@ -32,6 +35,24 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
                         placeholder="Search for Topics"
                         className="pl-12 h-12 rounded-full bg-[#FDFDFC] dark:bg-input/10 border-[#DDDAD4] dark:border-border text-base shadow-none focus-visible:ring-1 transition-all"
                     />
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                        {
+                            currentQuery ? (
+                                <Button
+                                    type="button"
+                                    onClick={() => router.push('/feed/search')}
+                                    variant="ghost"
+                                    size="icon"
+                                >
+                                    <XIcon className="size-4" />
+                                </Button>
+                            ) : (
+                                <Button type="submit" variant="default" size="icon">
+                                    <SearchIcon className="size-4" />
+                                </Button>
+                            )
+                        }
+                    </div>
                 </div>
             </form>
 
