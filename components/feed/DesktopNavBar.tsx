@@ -63,12 +63,15 @@ export default function DesktopNavBar() {
                     />
 
                     <div className="relative w-full">
-                        <Search className="absolute size-4 z-10 top-1/2 left-2.5 transform -translate-y-1/2 text-muted-foreground" />
-                        <Input
-                            type="text"
-                            size={24}
-                            className="pl-9" // Add additional styling as needed
-                        />
+                        <form action="/feed/search">
+                            <Search className="absolute size-4 z-10 top-1/2 left-2.5 transform -translate-y-1/2 text-muted-foreground" />
+                            <Input
+                                type="text"
+                                name="q"
+                                size={24}
+                                className="pl-9" // Add additional styling as needed
+                            />
+                        </form>
                     </div>
                 </div>
             </div>
