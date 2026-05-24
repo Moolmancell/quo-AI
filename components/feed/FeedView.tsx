@@ -22,9 +22,11 @@ export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore
         ? window.innerHeight
         : 0;
 
-    const visibleFeed = feed.slice(
+    const safeFeed = Array.isArray(feed) ? feed : [];
+
+    const visibleFeed = safeFeed.slice(
         Math.max(0, currentPage - 1),
-        Math.min(feed.length, currentPage + 2)
+        Math.min(safeFeed.length, currentPage + 2)
     );
 
     return (
@@ -32,7 +34,7 @@ export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore
             drag="y"
             onDragEnd={handleDragEnd}
             dragConstraints={{
-                top: -(feed.length - 1) * height,
+                top: -(safeFeed.length - 1) * height,
                 bottom: 0,
             }}
             dragElastic={{ top: 0.5, bottom: 0.12 }}
@@ -63,7 +65,7 @@ export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore
             })}
             {isFetchingMore && (
                 <motion.div
-                    style={{ top: feed.length * height }}
+                    style={{ top: safeFeed.length * height }}
                     className="absolute w-full h-dvh flex items-center justify-center"
                 >
                     <Spinner className='size-8 absolute top-0' />
