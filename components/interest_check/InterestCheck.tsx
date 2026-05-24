@@ -51,7 +51,7 @@ export function InterestCheck({ children }: { children: React.ReactNode }) {
     if (status === 'error') {
         return (
             <main className="flex justify-center items-center w-full h-screen bg-background">
-                <WentWrong />
+                <WentWrong onClick={() => fetchData(new AbortController().signal)} />
             </main>
         );
     }
