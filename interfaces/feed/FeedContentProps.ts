@@ -1,4 +1,5 @@
 export interface FeedContentProps {
+    id: string,
     datePublished: string,
     author: string,
     src: string,

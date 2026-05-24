@@ -1,5 +1,6 @@
 [
   {
+    "id": "1",
     "title": "Slouching Towards Bethlehem",
     "author": "Joan Didion",
     "publication": "The Saturday Evening Post",
@@ -11,6 +12,7 @@
     "topic": "Social Commentary"
   },
   {
+    "id": "2",
     "title": "The White Album",
     "author": "Joan Didion",
     "publication": "New West",
@@ -22,6 +24,7 @@
     "topic": "Philosophy"
   },
   {
+    "id": "3",
     "title": "The Case for Reparations",
     "author": "Ta-Nehisi Coates",
     "publication": "The Atlantic",
@@ -33,6 +36,7 @@
     "topic": "Investigative Journalism"
   },
   {
+    "id": "4",
     "title": "Notes of a Native Son",
     "author": "James Baldwin",
     "publication": "Harper's Magazine",
@@ -44,6 +48,7 @@
     "topic": "Civil Rights"
   },
   {
+    "id": "5",
     "title": "Politics and the English Language",
     "author": "George Orwell",
     "publication": "Horizon",
@@ -55,6 +60,7 @@
     "topic": "Politics"
   },
   {
+    "id": "6",
     "title": "Consider the Lobster",
     "author": "David Foster Wallace",
     "publication": "Gourmet",
@@ -66,6 +72,7 @@
     "topic": "Ethics"
   },
   {
+    "id": "7",
     "title": "The Fire Next Time",
     "author": "James Baldwin",
     "publication": "The New Yorker",
@@ -77,6 +84,7 @@
     "topic": "Social Justice"
   },
   {
+    "id": "8",
     "title": "On Keeping a Notebook",
     "author": "Joan Didion",
     "publication": "Vogue",
@@ -88,6 +96,7 @@
     "topic": "Personal Essay"
   },
   {
+    "id": "9",
     "title": "Looking Back on the Spanish War",
     "author": "George Orwell",
     "publication": "New Road",
@@ -99,6 +108,7 @@
     "topic": "History"
   },
   {
+    "id": "10",
     "title": "A Supposedly Fun Thing I'll Never Do Again",
     "author": "David Foster Wallace",
     "publication": "Harper's Magazine",

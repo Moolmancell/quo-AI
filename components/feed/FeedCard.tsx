@@ -26,7 +26,7 @@ interface FeedCardProps extends FeedContentProps {
     toggleBookmark: () => void
 }
 
-export function FeedCard({ datePublished, author, src, publication, quote, thumbnail, favicon, isBookmarked, toggleBookmark }: FeedCardProps) {
+export function FeedCard({ id, datePublished, author, src, publication, quote, thumbnail, favicon, isBookmarked, toggleBookmark }: FeedCardProps) {
     // Initialize states as null or undefined rather than strings to make logic cleaner
 
     const relativeTime = formatSmartDate(datePublished);
@@ -76,7 +76,8 @@ export function FeedCard({ datePublished, author, src, publication, quote, thumb
                         >
                             <Bookmark />
                         </Toggle>
-                        <ShareDrawer 
+                        <ShareDrawer
+                            id={id}
                             datePublished={datePublished}
                             relativeTime={relativeTime}
                             author={author}

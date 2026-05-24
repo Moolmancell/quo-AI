@@ -24,7 +24,7 @@ interface ShareCardProps extends FeedContentProps {
     relativeTime: string;
 }
 
-export function ShareDrawer({ datePublished, relativeTime, author, src, publication, quote, favicon, thumbnail }: ShareCardProps) {
+export function ShareDrawer({ id, datePublished, relativeTime, author, src, publication, quote, favicon, thumbnail }: ShareCardProps) {
 
     const cardRef = useRef<HTMLDivElement>(null);
     const { handleShare, handleDownload, handleCopy } = useShareQuote();
@@ -45,6 +45,7 @@ export function ShareDrawer({ datePublished, relativeTime, author, src, publicat
                             {/* Sharing options go here */}
                             <div className='absolute -left-2499.75'>
                                 <ShareCard
+                                    id={id}
                                     ref={cardRef}
                                     datePublished={datePublished}
                                     relativeTime={relativeTime}

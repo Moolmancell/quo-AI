@@ -17,7 +17,7 @@ export function useBookmarks() {
             } else {
                 await axios.delete(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/delete-bookmark`,
-                    { data: item.src }
+                    { data: item.id }
                 );
             }
         } catch (e) {
@@ -25,8 +25,8 @@ export function useBookmarks() {
             setBookmarkedUrls(prev => {
                 const next = new Set(prev);
                 action === "add"
-                    ? next.delete(item.src)
-                    : next.add(item.src);
+                    ? next.delete(item.id)
+                    : next.add(item.id);
                 return next;
             });
         }
@@ -34,15 +34,15 @@ export function useBookmarks() {
 
 
     const toggleBookmark = (item: FeedContentProps) => {
-        const isBookmarked = bookmarkedUrls.has(item.src);
+        const isBookmarked = bookmarkedUrls.has(item.id);
         const action: BookmarkAction = isBookmarked ? "remove" : "add";
 
         setBookmarkedUrls(prev => {
             const next = new Set(prev);
             if (action === "remove") {
-                next.delete(item.src);
+                next.delete(item.id);
             } else {
-                next.add(item.src);
+                next.add(item.id);
             }
             return next;
         });
@@ -51,11 +51,11 @@ export function useBookmarks() {
     };
 
     const toggleBookmarkDoubleClick = (item: FeedContentProps) => {
-        if (bookmarkedUrls.has(item.src)) return;
+        if (bookmarkedUrls.has(item.id)) return;
 
         setBookmarkedUrls(prev => {
             const next = new Set(prev);
-            next.add(item.src);
+            next.add(item.id);
             return next;
         });
 

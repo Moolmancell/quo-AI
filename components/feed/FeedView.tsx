@@ -57,7 +57,7 @@ export function FeedView({ className, handleDragEnd, currentPage, isFetchingMore
                         }}
                     >
                         {/*BUG: function toggle*/}
-                        <FeedCard {...item} isBookmarked={bookmarkedUrls.has(item.src)} toggleBookmark={() => toggleBookmark(item)}/>
+                        <FeedCard {...item} isBookmarked={bookmarkedUrls.has(item.id)} toggleBookmark={() => toggleBookmark(item)}/>
                     </motion.div>
                 );
             })}
