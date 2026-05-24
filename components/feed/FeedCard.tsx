@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/Avatar";
 import { Skeleton } from "../ui/Skeleton";
-import axios from "axios";
 import { Globe } from "lucide-react";
 import {
     Card,

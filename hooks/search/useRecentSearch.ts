@@ -1,6 +1,6 @@
 "use client";
 
-import axios from "axios";
+import axios from "@/lib/axios";
 import { useState, useEffect, useCallback } from "react";
 
 export type FetchStatus = "idle" | "loading" | "success" | "error";

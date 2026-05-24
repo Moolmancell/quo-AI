@@ -1,6 +1,6 @@
 // hooks/useInterests.ts
 import { useState } from "react";
-import axios from "axios";
+import axios from "@/lib/axios";
 
 export function useInterests() {
   const [options, setOptions] = useState(["Programming", "Religion", "Technology", "Science"]);

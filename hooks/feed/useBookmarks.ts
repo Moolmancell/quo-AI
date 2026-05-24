@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axios from "@/lib/axios";
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 
 export function useBookmarks() {

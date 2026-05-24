@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useAuth } from "../providers/AuthProvider";
-import axios from "axios";
+import axios from "@/lib/axios";
 import { Spinner } from "../ui/Spinner";
 import { WentWrong } from "../error/WentWrong";
 import { useRouter } from "next/navigation";   
