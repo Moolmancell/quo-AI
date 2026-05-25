@@ -17,7 +17,7 @@ export function useBookmarks() {
             } else {
                 await axios.delete(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/feed/delete-bookmark`,
-                    { data: item.id }
+                    { data: { id: item.id } }
                 );
             }
         } catch (e) {
