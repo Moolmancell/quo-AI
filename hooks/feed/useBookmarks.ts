@@ -11,12 +11,12 @@ export function useBookmarks() {
         try {
             if (action === "add") {
                 await axios.post(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/add-bookmark`,
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/feed/add-bookmark`,
                     { item }
                 );
             } else {
                 await axios.delete(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/delete-bookmark`,
+                    `${process.env.NEXT_PUBLIC_API_URL}/api/feed/delete-bookmark`,
                     { data: item.id }
                 );
             }
