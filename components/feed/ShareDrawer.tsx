@@ -45,6 +45,7 @@ export function ShareDrawer({ id, datePublished, relativeTime, author, src, publ
                             {/* Sharing options go here */}
                             <div className='absolute -left-2499.75'>
                                 <ShareCard
+                                    key={id}
                                     id={id}
                                     ref={cardRef}
                                     datePublished={datePublished}
