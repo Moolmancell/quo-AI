@@ -1,9 +1,5 @@
 'use client'
 
-import { AspectRatio } from "@/components/ui/AspectRatio";
-import Image from "next/image";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/Avatar";
-import { Globe } from "lucide-react";
 import {
     Card,
     CardContent,
@@ -12,6 +8,7 @@ import {
 } from "@/components/ui/Card"
 import { FeedContentProps } from "@/interfaces/feed/FeedContentProps";
 import Logo from "../brand/Logo";
+import dayjs from "dayjs";
 
 interface ShareCardProps extends FeedContentProps {
     relativeTime: string;
@@ -27,7 +24,7 @@ export function ShareCard({ ref, className, datePublished, relativeTime, author,
             <CardHeader className="flex items-center gap-2.5 p-3">
                 <div>
                     <h2 className="text-xs sm:text-sm font-medium text-foreground mb-1 leading-none">{author}</h2>
-                    <p className="text-xs text-muted-foreground">{relativeTime}</p>
+                    <p className="text-xs text-muted-foreground">{dayjs(datePublished).format('MMMM D, YYYY')}</p>
                 </div>
             </CardHeader>
 
@@ -39,7 +36,7 @@ export function ShareCard({ ref, className, datePublished, relativeTime, author,
                 {/* Content Section */}
                 <div className="p-3">
                     <p
-                        className="text-xs sm:text-sm font-normal text-card-foreground mb-4 line-clamp-5"
+                        className="text-md font-medium text-card-foreground mb-4 line-clamp-5"
                         dangerouslySetInnerHTML={{ __html: quote }}
                     />                    
                     <p className="text-xs font-normal text-muted-foreground">{publication}</p>
