@@ -55,7 +55,7 @@ export function FeedCard({ id, datePublished, author, src, publication, quote, t
                 {/* Content Section */}
                 <div className="p-3">
                     <p
-                        className="text-xs sm:text-sm font-normal text-card-foreground mb-4"
+                        className="text-xs sm:text-sm font-normal text-card-foreground mb-4 line-clamp-5"
                         dangerouslySetInnerHTML={{ __html: quote }}
                     />
                     <p className="text-xs font-normal text-muted-foreground">{publication}</p>
