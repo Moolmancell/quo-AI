@@ -12,7 +12,7 @@ export function useBookmarks() {
             if (action === "add") {
                 await axios.post(
                     `${process.env.NEXT_PUBLIC_API_URL}/api/feed/add-bookmark`,
-                    { item }
+                    { quoteId: item.id }
                 );
             } else {
                 await axios.delete(
