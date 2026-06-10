@@ -36,7 +36,7 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
     return (
         <div className="flex flex-col gap-8 px-4 py-8 md:px-8 max-w-3xl mx-auto">
             {/* Search Input Container */}
-            <form onSubmit={handleSubmit}>
+            <form key={searchParams.toString()} onSubmit={handleSubmit}>
                 <div className="relative group w-full">
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-muted-foreground transition-colors group-focus-within:text-primary pointer-events-none" />
                     <Input
@@ -64,7 +64,7 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
                             )
                         }
                     </div>
-                    <Select defaultValue="Articles/Essays" name="type" onValueChange={(val) => {
+                    <Select value={currentType} name="type" onValueChange={(val) => {
                         const params = new URLSearchParams(searchParams.toString());
                         params.set("type", val);
                         router.replace(`/feed/search?${params.toString()}`);
