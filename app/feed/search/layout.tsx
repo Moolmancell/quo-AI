@@ -20,6 +20,7 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
     const router = useRouter();
     const searchParams = useSearchParams();
     const currentQuery = searchParams.get("q") || "";
+    const currentType = searchParams.get("type") || "Articles/Essays";
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -63,7 +64,11 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
                             )
                         }
                     </div>
-                    <Select defaultValue="Articles/Essays" name="type">
+                    <Select defaultValue="Articles/Essays" name="type" onValueChange={(val) => {
+                        const params = new URLSearchParams(searchParams.toString());
+                        params.set("type", val);
+                        router.replace(`/feed/search?${params.toString()}`);
+                    }}>
                         <SelectTrigger className="absolute right-12 top-1/2 -translate-y-1/2 border-none focus:ring-0">
                             <SelectValue placeholder="Search" />
                         </SelectTrigger>

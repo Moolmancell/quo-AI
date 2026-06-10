@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/Button"
 import { useRecentSearch } from "@/hooks/search/useRecentSearch"
 import { Skeleton } from "@/components/ui/Skeleton"
 import { RotateCw } from "lucide-react"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { XIcon } from "lucide-react"
 
-export function RecentSearches({recentSearches, status, refetch, clearSearches, deleteSearch} : {
+export function RecentSearches({ recentSearches, status, refetch, clearSearches, deleteSearch }: {
     recentSearches: string[];
     status: "idle" | "loading" | "success" | "error";
     refetch: () => void;
@@ -16,6 +16,8 @@ export function RecentSearches({recentSearches, status, refetch, clearSearches, 
     deleteSearch: (search: string) => void;
 }) {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const currentType = searchParams.get("type") || "Articles/Essays";
 
     return (
         <>
@@ -56,7 +58,7 @@ export function RecentSearches({recentSearches, status, refetch, clearSearches, 
                         {recentSearches.length > 0 ? (
                             recentSearches.map((search) => (
                                 <div
-                                    onClick={() => router.push(`/feed/search?q=${encodeURIComponent(search)}`)}
+                                    onClick={() => router.push(`/feed/search?q=${encodeURIComponent(search)}&type=${encodeURIComponent(currentType)}`)}
                                     key={search}
                                     className="flex flex-row items-center h-6 pl-2 pr-1 rounded-[8px] text-xs cursor-pointer font-semibold bg-[#EFEBE7] hover:bg-[#E5E1DD] text-[#282F3E] border-none shadow-none transition-colors group"
                                 >
