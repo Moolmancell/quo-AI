@@ -3,7 +3,7 @@
 import { useRecentSearch } from "@/hooks/search/useRecentSearch"
 import { useRouter } from "next/navigation"
 import { RecentSearches } from "@/components/search/RecentSearches";
-import { SearchResultsPage } from "@/components/search/SearchResults";
+import { SearchResults } from "@/components/search/SearchResults";
 import { useSearchParams } from "next/navigation";
 
 export default function SearchPage() {
@@ -15,7 +15,7 @@ export default function SearchPage() {
         <>
             {
                 search ? (
-                    <SearchResultsPage search={search} />
+                    <SearchResults search={search} />
                 ) : (
                     <RecentSearches
                         recentSearches={recentSearches}
