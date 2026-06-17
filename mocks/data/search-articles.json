@@ -1,0 +1,181 @@
+{
+    "success": true,
+    "data": [
+        {
+            "id": "1",
+            "title": "The Philosophy of Programming",
+            "author": "Jane Doe",
+            "publication": "Tech Today",
+            "datePublished": "2025-01-15",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-1",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "2",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "3",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "4",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "5",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "6",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "7",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "8",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "9",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "10",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "11",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "12",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "13",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "14",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "15",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        },
+        {
+            "id": "16",
+            "title": "Understanding Addiction",
+            "author": "John Smith",
+            "publication": "Health Weekly",
+            "datePublished": "2025-03-22",
+            "snippet": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum....",
+            "src": "https://example.com/article-2",
+            "favicon": "https://example.com/favicon.ico",
+            "thumbnail": "https://example.com/thumb.jpg"
+        }
+    ]
+}
