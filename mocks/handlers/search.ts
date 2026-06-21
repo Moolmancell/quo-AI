@@ -15,15 +15,11 @@ export const searchHandlers = [
         const type = url.searchParams.get("type") || "Articles/Essays";
 
         if (type === "Quotes") {
-            return HttpResponse.json({
-                results: searchQuotes
-            });
+            return HttpResponse.json(searchQuotes);
         }
 
         // Articles/Essays (default)
-        return HttpResponse.json({
-            results: searchArticles
-        });
+        return HttpResponse.json(searchArticles);
     }),
 
     http.get(`${BASE_URL}/get-recent-searches`, async () => {
