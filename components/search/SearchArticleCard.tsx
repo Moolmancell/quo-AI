@@ -20,7 +20,7 @@ interface SearchArticleCardProps {
 
 export function SearchArticleCard({ article }: SearchArticleCardProps) {
     return (
-        <Card className="w-[384px] p-0 flex flex-col gap-0 overflow-hidden border-[#DDDAD4] bg-[#FDFDFC] rounded-[24px] shadow-none">
+        <Card className="p-0 flex flex-col gap-0 overflow-hidden border-[#DDDAD4] bg-[#FDFDFC] rounded-[24px] shadow-none">
             {/* Author Section */}
             <div className="flex items-center gap-[10px] p-3">
                 <Avatar className="size-8">
