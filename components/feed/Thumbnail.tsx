@@ -4,14 +4,14 @@ import { AspectRatio } from "@/components/ui/AspectRatio";
 import Image from "next/image"
 import { useState } from "react";
 
-export function Thumbnail({ src, favicon }: { src: string, favicon: string }) {
+export function Thumbnail({ src, favicon, ratio = 4 / 3 }: { src: string, favicon: string, ratio?: number }) {
 
     const [errorLoadingImage, setErrorLoadingImage] = useState(false);
     const [errorLoadingFavicon, setErrorLoadingFavicon] = useState(false);
 
     return (
         <div className="overflow-hidden border bg-muted">
-            <AspectRatio ratio={4 / 3}>
+            <AspectRatio ratio={ratio}>
                 {
                     errorLoadingImage && errorLoadingFavicon ? (
                         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square inset-0 w-1/3 flex items-center justify-center text-sm text-muted-foreground">
