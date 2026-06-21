@@ -56,17 +56,10 @@ export function SearchArticleCard({ article }: SearchArticleCardProps) {
 
             {/* Read More Section */}
             <div className="p-3">
-                <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="h-auto p-0 hover:bg-transparent text-xs font-semibold text-[#1E232F] tracking-[0.015em] flex justify-start gap-2"
-                    asChild
-                >
-                    <a className="p-2" href={article.src} target="_blank" rel="noopener noreferrer">
+                    <a className="w-fit p-2 h-auto hover:bg-transparent hover:underline text-xs font-semibold text-[#1E232F] tracking-[0.015em] flex justify-start gap-2" href={article.src} target="_blank" rel="noopener noreferrer">
                         Read More
                         <MoveRight className="size-[16.25px]" />
                     </a>
-                </Button>
             </div>
         </Card>
     );
