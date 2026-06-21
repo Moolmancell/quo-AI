@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
+import { Thumbnail } from "@/components/thumbnail/Thumbnail"
 
 interface SearchArticleCardProps {
     article: {
@@ -34,12 +35,11 @@ export function SearchArticleCard({ article }: SearchArticleCardProps) {
 
             {/* Picture Section */}
             <div className="px-3">
-                <div className="relative w-full h-[160px] rounded-sm overflow-hidden">
-                    <Image
+                <div className="relative w-full rounded-sm overflow-hidden">
+                    <Thumbnail
                         src={article.thumbnail || "/images/search/article-placeholder.png"}
-                        alt={article.title}
-                        fill
-                        className="object-cover"
+                        favicon={article.favicon || "/images/search/avatar-placeholder.png"}
+                        ratio={16 / 9}
                     />
                 </div>
             </div>
