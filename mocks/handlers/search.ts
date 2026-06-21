@@ -13,13 +13,23 @@ export const searchHandlers = [
         const url = new URL(request.url);
         const query = url.searchParams.get("q") || "";
         const type = url.searchParams.get("type") || "Articles/Essays";
+        const page = parseInt(url.searchParams.get("page") || "1", 10);
+        const limit = parseInt(url.searchParams.get("limit") || "12", 10);
 
         if (type === "Quotes") {
             return HttpResponse.json(searchQuotes);
         }
 
         // Articles/Essays (default)
-        return HttpResponse.json(searchArticles);
+        const data = searchArticles.data;
+        const start = (page - 1) * limit;
+        const sliced = data.slice(start, start + limit);
+
+        return HttpResponse.json({
+            success: true,
+            data: sliced,
+            hasMore: start + limit < data.length,
+        });
     }),
 
     http.get(`${BASE_URL}/get-recent-searches`, async () => {
