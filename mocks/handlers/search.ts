@@ -17,7 +17,15 @@ export const searchHandlers = [
         const limit = parseInt(url.searchParams.get("limit") || "12", 10);
 
         if (type === "Quotes") {
-            return HttpResponse.json(searchQuotes);
+            const data = searchQuotes.data;
+            const start = (page - 1) * limit;
+            const sliced = data.slice(start, start + limit);
+
+            return HttpResponse.json({
+                success: true,
+                data: sliced,
+                hasMore: start + limit < data.length,
+            });
         }
 
         // Articles/Essays (default)

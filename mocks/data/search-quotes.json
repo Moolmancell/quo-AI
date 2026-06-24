@@ -173,6 +173,471 @@
             "thumbnail": "https://substackcdn.com/image/fetch/$s_!ke88!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8949a619-25fb-467f-92a3-36af67761448_874x1093.jpeg",
             "favicon": "https://substackcdn.com/image/fetch/$s_!YIl4!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d0138b1-7c78-45e8-85ac-76dcc66b345d_1280x1280.png",
             "category": "core"
+        },
+        {
+            "id": "c2e9b9cd-1edd-4c44-b2fc-e4b5267fd08d",
+            "title": "No, you most probably don't know what p-values and confidence intervals mean (but don't feel bad about it, you can just do Bayesian instead)",
+            "author": "Max Speicher",
+            "publication": "Tales of Design & User Experience (& Other Stuff)",
+            "src": "https://todux.substack.com/p/no-you-most-probably-dont-know-what",
+            "datePublished": "2025-06-12T09:50:22.000Z",
+            "quote": "The goal isn’t to become a statistician overnight, but to develop a more nuanced relationship with uncertainty in our work.",
+            "topic": [
+                "uncertainty",
+                "UX",
+                "statistics",
+                "learning"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!t131!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F66dbcf99-ceef-47c2-9097-2e1c0923ef4a_1189x790.png",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!Wgng!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faa79f47b-6ce1-4d7b-aec1-18d6debc96f1_512x512.png",
+            "category": "core"
+        },
+        {
+            "id": "8998b230-5a4a-4977-ac1d-09db92e742e1",
+            "title": "The #1 sign your self-trust is growing: The people who needed you quiet now call you difficult",
+            "author": "Akanksha Priyadarshini",
+            "publication": "Another Shot at Life",
+            "src": "https://akankshapriyadarshini.substack.com/p/the-1-sign-your-self-trust-is-growing",
+            "datePublished": "2026-05-15T11:30:47.000Z",
+            "quote": "The further you get from who you were trained to be, the more friction you collect.",
+            "topic": [
+                "Growth",
+                "Identity",
+                "Friction"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!g1-V!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6da5b38-66c1-4903-a491-9e1e5cdab21b_1122x1402.png",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!G1dv!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe4c36e08-3649-4aed-a5af-4a024980bdab_500x500.png",
+            "category": "core"
+        },
+        {
+            "id": "0ccb21df-9493-45b9-ae67-9d21eecc33e2",
+            "title": "Why User Self-Efficacy Matters for AI Product Success",
+            "author": "Dr Maria Panagiotidi",
+            "publication": "UX Psychology",
+            "src": "https://uxpsychology.substack.com/p/why-user-self-efficacy-matters-for",
+            "datePublished": "2025-10-10T11:31:49.000Z",
+            "quote": "The pathway runs through user self‑efficacy – the belief that “I can successfully work with this system.”",
+            "topic": [
+                "self‑efficacy",
+                "AI adoption",
+                "user confidence",
+                "psychology"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!F4L8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1efcde80-3d30-43b4-849a-b0200c137d64_1024x1024.png",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!NOSF!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0181ccd7-ac99-43f8-98d0-22485247fdab_958x958.png",
+            "category": "core"
+        },
+        {
+            "id": "ede8900a-924c-49e8-8c26-acd9e8198077",
+            "title": "Expand your context, not just context.md file",
+            "author": "Jin Kang Moller",
+            "publication": "Design Muscle",
+            "src": "https://designmuscle.substack.com/p/expand-your-context-not-just-contextmd",
+            "datePublished": "2026-04-22T15:21:21.000Z",
+            "quote": "the quality of your judgment about AI output is directly proportional to what you know and have experienced. Expanding your context is your long-term competitive advantage",
+            "topic": [
+                "AI Judgment",
+                "Competitive Advantage",
+                "Knowledge Expansion"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!GQee!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5ed39ddf-e876-4be5-b1d4-b472d7a660a0_1080x1350.png",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!38Ws!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F323d3126-7013-4bcb-9968-854a6ae6ceea_1134x1134.png",
+            "category": "core"
+        },
+        {
+            "id": "534f43fa-46f8-4f31-9274-9469ec9aad7d",
+            "title": "Top 13 Tech Trends Shaping 2025",
+            "author": "Cashless: Fintech, CBDC and AI at the speed of Asia",
+            "publication": "Cashless: Fintech, CBDC and AI at the speed of Asia",
+            "src": "https://richturrin.substack.com/p/top-13-tech-trends-shaping-2025",
+            "datePublished": "2025-07-27T01:57:55.000Z",
+            "quote": "Immersive-reality technologies encompass augmented reality (AR) and virtual reality (VR) and include AR smart glasses, advanced haptic feedback, and AI-powered enhancements that improve rendering, tracking, and processing capabilities.",
+            "topic": [
+                "Immersive Reality",
+                ",",
+                ","
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!LmRb!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9a9da74a-5450-454b-a7be-eebe9415652a_1888x994.png",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!I51H!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fadec6c4b-f387-4e7b-b6c3-fe9eac0b89ae%2Ffavicon.ico",
+            "category": "related"
+        },
+        {
+            "id": "90cb190d-e23a-4fe6-b9db-38bcdf2d666e",
+            "title": "Failure",
+            "author": "David Armano",
+            "publication": "David by Design",
+            "src": "https://davidarmano.substack.com/p/failure",
+            "datePublished": "2026-05-16T11:21:21.000Z",
+            "quote": "To live is to take the risk that we might fail at something.",
+            "topic": [
+                "Risk",
+                "Failure",
+                "Life",
+                "Philosophy"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!qf56!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3c0561d2-4410-4836-9622-f19f93f332b7_768x1002.jpeg",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!NwQ5!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4a5dfbc5-98e4-49e6-ba86-eb2b4dd7e75e_720x720.png",
+            "category": "core"
+        },
+        {
+            "id": "f0b2949b-4450-4ec0-8d41-ce3d2d3436f6",
+            "title": "Tech and the Wealth of Nations - Paul Krugman",
+            "author": "Paul Krugman",
+            "publication": "Paul Krugman",
+            "src": "https://paulkrugman.substack.com/p/tech-and-the-wealth-of-nations",
+            "datePublished": "2025-10-05T10:58:43.000Z",
+            "quote": "For economists, technology is basically everything that makes the use of labor and capital more efficient.",
+            "topic": [
+                "Economics",
+                "Technology Definition",
+                "Productivity"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!q3zK!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc152c499-d1b5-4eec-9091-ffe35d329222_1080x1080.jpeg",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!KyaE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fec779ac5-7aa4-4546-b52d-c735f50c3b47%2Fapple-touch-icon-114x114.png",
+            "category": "related"
+        },
+        {
+            "id": "e75bf9ae-e34a-493f-8790-f497f38791ef",
+            "title": "UX should be easy by now. So why isn’t it?",
+            "author": "Max Speicher",
+            "publication": "Tales of Design & User Experience (& Other Stuff)",
+            "src": "https://todux.substack.com/p/ux-should-be-easy-by-now-so-why-isnt",
+            "datePublished": "2025-08-04T13:35:26.000Z",
+            "quote": "Here’s the kicker: the trillion-dollar business opportunity remains for those who choose to differentiate on actual, delightful experiences, while so many still leave this value on the table.",
+            "topic": [
+                "business opportunity",
+                "UX differentiation",
+                "value",
+                "market"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!xS--!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcf3054a6-b6bf-4a3a-aed7-6cf81b2e9f8f_1400x1070.jpeg",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!Wgng!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faa79f47b-6ce1-4d7b-aec1-18d6debc96f1_512x512.png",
+            "category": "core"
+        },
+        {
+            "id": "f7fda3bb-7c45-4fb6-95cd-e5e80fe45308",
+            "title": "The Fatigued Mind",
+            "author": "Dom de Lima",
+            "publication": "Mind Matters",
+            "src": "https://domdelima.substack.com/p/the-fatigued-mind",
+            "datePublished": "2026-03-18T17:12:29.000Z",
+            "quote": "We can continue completing demanding tasks even when fatigue has already set in.",
+            "topic": [
+                "cognitive fatigue",
+                "performance",
+                "self-control"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!odAz!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F164ae172-dc4b-4162-a36e-05cc8b7bd9f5_689x364.jpeg",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!eqDL!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2efbd4a3-fcfd-4c35-948e-1b69af0bb06c_256x256.png",
+            "category": "core"
+        },
+        {
+            "id": "3391b4e8-b76a-4d2f-93c8-e9a8c29798c5",
+            "title": "Why tech bros are obsessed with \"taste\"",
+            "author": "Kyle Chayka",
+            "publication": "Kyle Chayka Industries",
+            "src": "https://kylechayka.substack.com/p/why-tech-bros-are-obsessed-with-taste",
+            "datePublished": "2026-03-26T13:10:46.000Z",
+            "quote": "generative A.I. was going to automate not only the consumption but the production of culture in ever more generic forms.",
+            "topic": [
+                "generative AI",
+                ","
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!lsaJ!,w_64,h_64,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F101f87f1-914c-4b2c-a491-85c01436e0f0_144x144.png",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!0lOQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F99fcfa44-926a-4bb1-9b52-0c1c2b646fdb%2Fapple-touch-icon-144x144.png",
+            "category": "related"
+        },
+        {
+            "id": "a5724dd1-b0b4-4f8a-964e-267d915e1128",
+            "title": "Embrace the mess: how to tell honest UX stories that help you grow",
+            "author": "Christopher K Wong",
+            "publication": "The Designer's Field Guide, by Kai Wong.",
+            "src": "https://thedesignersfieldguide.substack.com/p/embrace-the-mess-how-to-tell-honest",
+            "datePublished": "2026-05-13T12:46:05.000Z",
+            "quote": "This project taught me how important it is to keep design visible early. Partway through, I was caught off guard by legal requirements and new branding constraints, and that changed how I work.",
+            "topic": [
+                "design visibility",
+                "legal constraints",
+                "branding",
+                "process"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!cilo!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F885ed173-a1d0-4d25-b032-06c48f7f67ba_640x859.jpeg",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!ioxi!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3c0cf8c9-4853-4ff1-830a-76771dc9ab47_608x608.png",
+            "category": "core"
+        },
+        {
+            "id": "323745f8-9ac7-4126-bc45-5f6a015bf7a5",
+            "title": "The #1 sign your self-trust is growing: The people who needed you quiet now call you difficult",
+            "author": "Akanksha Priyadarshini",
+            "publication": "Another Shot at Life",
+            "src": "https://akankshapriyadarshini.substack.com/p/the-1-sign-your-self-trust-is-growing",
+            "datePublished": "2026-05-15T11:30:47.000Z",
+            "quote": "The label was never about your character. It was about your usefulness.",
+            "topic": [
+                "Identity",
+                "Usefulness",
+                "Perception"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!g1-V!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6da5b38-66c1-4903-a491-9e1e5cdab21b_1122x1402.png",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!G1dv!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe4c36e08-3649-4aed-a5af-4a024980bdab_500x500.png",
+            "category": "discovery"
+        },
+        {
+            "id": "c8b9ea58-f8cf-4058-8f79-3ce7aa89ff01",
+            "title": "Stop Saying Yes When You Mean No",
+            "author": "Akanksha Priyadarshini",
+            "publication": "Another Shot at Life",
+            "src": "https://akankshapriyadarshini.substack.com/p/stop-saying-yes-when-you-mean-no",
+            "datePublished": "2026-05-08T11:31:12.000Z",
+            "quote": "Telling yourself: they need this. It&#8217;s not a big deal. I don&#8217;t mind. Calling it being easy. Being flexible. Being good.",
+            "topic": [
+                "People Pleasing",
+                "Internal Dialogue"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!oEVd!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F434ab1bf-9fa4-44ee-8149-f1e07d57ea35_1254x1254.png",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!G1dv!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe4c36e08-3649-4aed-a5af-4a024980bdab_500x500.png",
+            "category": "core"
+        },
+        {
+            "id": "e0a164d1-062f-41a6-a9f9-cdcd864e4ca8",
+            "title": "Failure",
+            "author": "David Armano",
+            "publication": "David by Design",
+            "src": "https://davidarmano.substack.com/p/failure",
+            "datePublished": "2026-05-16T11:21:21.000Z",
+            "quote": "If you aren’t failing, you aren’t living,",
+            "topic": [
+                "Failure",
+                "Life",
+                "Growth",
+                "Philosophy"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!qf56!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3c0561d2-4410-4836-9622-f19f93f332b7_768x1002.jpeg",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!NwQ5!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4a5dfbc5-98e4-49e6-ba86-eb2b4dd7e75e_720x720.png",
+            "category": "core"
+        },
+        {
+            "id": "0cdbe910-ea1a-44af-8c88-6c9f903ff213",
+            "title": "Why User Self-Efficacy Matters for AI Product Success",
+            "author": "Dr Maria Panagiotidi",
+            "publication": "UX Psychology",
+            "src": "https://uxpsychology.substack.com/p/why-user-self-efficacy-matters-for",
+            "datePublished": "2025-10-10T11:31:49.000Z",
+            "quote": "Design for user confidence, not AI sophistication.",
+            "topic": [
+                "user confidence",
+                "AI sophistication",
+                "design principle",
+                "UX"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!F4L8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1efcde80-3d30-43b4-849a-b0200c137d64_1024x1024.png",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!NOSF!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0181ccd7-ac99-43f8-98d0-22485247fdab_958x958.png",
+            "category": "discovery"
+        },
+        {
+            "id": "4f074a16-b913-492e-a340-fdb0a0b8ea4f",
+            "title": "Tech Trends 2026 update: New compression tricks could change how enterprises think about AI infrastructure",
+            "author": "Deloitte OCTO",
+            "publication": "Field Notes from the Future",
+            "src": "https://nextfutures.substack.com/p/tech-trends-2026-update-new-compression?action=share",
+            "datePublished": "2026-05-06T14:02:51.000Z",
+            "quote": "When technology advances in efficiency and capability, people often use more of it, not less.",
+            "topic": [
+                "technology adoption",
+                ",",
+                "]},{quote:"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!TTlL!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F63e69285-dc4f-4558-b7d1-e2013cf98ddd_420x300.png",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!awqy!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3c7563bc-bb58-462a-8cc6-e00f36efa170%2Ffavicon.ico",
+            "category": "core"
+        },
+        {
+            "id": "0e48c694-4524-4fba-95d0-6b6b13392016",
+            "title": "The Dark Triad of Personality : An Overview",
+            "author": "Dom de Lima",
+            "publication": "Mind Matters",
+            "src": "https://domdelima.substack.com/p/the-dark-triad-of-personality-an",
+            "datePublished": "2026-03-25T15:25:30.000Z",
+            "quote": "In these spaces, charisma can matter more than kindness, and decisiveness more than empathy.",
+            "topic": [
+                "Charisma",
+                "Leadership",
+                "Empathy",
+                "Power"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!9AAQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0e923b2f-d19b-423f-baa1-ee2fcd6b8568_619x322.jpeg",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!eqDL!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2efbd4a3-fcfd-4c35-948e-1b69af0bb06c_256x256.png",
+            "category": "core"
+        },
+        {
+            "id": "0537e417-bba2-4720-826e-fa3b1912ce0e",
+            "title": "Innovation in Design Under Constraints: How Limitations Can Drive Creativity in UX/UI",
+            "author": "The Design Spark",
+            "publication": "The Design Spark",
+            "src": "https://jonathanbuitrago.substack.com/p/innovation-in-design-under-constraints",
+            "datePublished": "2025-01-29T11:50:44.000Z",
+            "quote": "Limitations can be creativity's best ally.",
+            "topic": [
+                "constraints",
+                "creativity",
+                "innovation",
+                "UX/UI"
+            ],
+            "thumbnail": "https://substack-post-media.s3.amazonaws.com/public/images/d5f1e0fe-8bbd-447d-a493-7938b2da3ae1_2158x1500.jpeg",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!yyyb!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F78e3c358-be8a-4647-82e3-a114cf5e282c_800x800.jpeg",
+            "category": "core"
+        },
+        {
+            "id": "13c23c56-4bff-4c62-b270-249c69017f17",
+            "title": "Innovation Is Optional. Stronger Thinking Isn’t.",
+            "author": "Jin Kang Moller",
+            "publication": "Design Muscle",
+            "src": "https://designmuscle.substack.com/p/innovation-is-optional-stronger-thinking",
+            "datePublished": "2026-03-05T12:57:00.000Z",
+            "quote": "And in a world where AI can now generate the outputs, the prototypes, the content, the solutions, that trained mind becomes your most valuable asset.",
+            "topic": [
+                "AI",
+                "Human Value",
+                "Future of Work"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!1OTw!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9ee9ef07-5bec-461e-8b58-2f05c33892d8_1206x1272.jpeg",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!38Ws!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F323d3126-7013-4bcb-9968-854a6ae6ceea_1134x1134.png",
+            "category": "core"
+        },
+        {
+            "id": "1f19ff0b-0840-4d59-96cf-895ba2d56afb",
+            "title": "Tech Trends 2026 update: New compression tricks could change how enterprises think about AI infrastructure",
+            "author": "Deloitte OCTO",
+            "publication": "Field Notes from the Future",
+            "src": "https://nextfutures.substack.com/p/tech-trends-2026-update-new-compression?action=share",
+            "datePublished": "2026-05-06T14:02:51.000Z",
+            "quote": "As we described in this year’s Tech Trends report, as they scale AI applications across the organization, enterprises are discovering their existing infrastructure strategies aren’t designed for AI’s demands.",
+            "topic": [
+                "AI scaling",
+                ","
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!TTlL!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F63e69285-dc4f-4558-b7d1-e2013cf98ddd_420x300.png",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!awqy!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3c7563bc-bb58-462a-8cc6-e00f36efa170%2Ffavicon.ico",
+            "category": "core"
+        },
+        {
+            "id": "f7910b77-8af9-462d-ba90-5ac2e962ebcc",
+            "title": "📈Chartpack: Not AI - other new tech trends to inform your product’s strategy",
+            "author": "Rich Holmes",
+            "publication": "Department of Product",
+            "src": "https://departmentofproduct.substack.com/p/chartpack-not-ai-other-new-tech-trends",
+            "datePublished": "2024-03-27T15:25:59.000Z",
+            "quote": "R&D expenses for the twelve months ending December 31, 2023 were a massive $85.622B, a 16.95% increase year-over-year.",
+            "topic": [
+                "R&D",
+                "Amazon",
+                "Finance"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!eUaw!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8bbcdd28-fb94-4652-9f93-77be4d5531b0_1600x1270.png",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!hH8z!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe99bedd9-4671-4c06-8e8f-2871c45d26b7%2Fapple-touch-icon-114x114.png",
+            "category": "related"
+        },
+        {
+            "id": "6330dae1-3ca1-444b-93ac-b982e986d4d4",
+            "title": "The Dark Triad of Personality : An Overview",
+            "author": "Dom de Lima",
+            "publication": "Mind Matters",
+            "src": "https://domdelima.substack.com/p/the-dark-triad-of-personality-an",
+            "datePublished": "2026-03-25T15:25:30.000Z",
+            "quote": "Traits that are rare in everyday life appear disproportionately in spaces where charm, dominance, and risk-taking are seen as assets.",
+            "topic": [
+                "Power",
+                "Risk-taking",
+                "Leadership",
+                "Dark Triad"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!9AAQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0e923b2f-d19b-423f-baa1-ee2fcd6b8568_619x322.jpeg",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!eqDL!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2efbd4a3-fcfd-4c35-948e-1b69af0bb06c_256x256.png",
+            "category": "core"
+        },
+        {
+            "id": "b0887fc4-a433-4f66-8a7d-1a02e429c1ac",
+            "title": "2025 Tech Resolutions - by Caoilainn Lander - brave enough",
+            "author": "Caoilainn Lander",
+            "publication": "brave enough",
+            "src": "https://caoilainn.substack.com/p/2025-tech-resolutions",
+            "datePublished": "2025-01-01T08:31:05.000Z",
+            "quote": "it really takes the mental load out of training, which is one of my favourite use cases of any technology.",
+            "topic": [
+                "technology",
+                ""
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!t2c1!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe01fd61e-f474-4339-a3c6-f6d5bd12bd94_236x237.jpeg",
+            "favicon": "https://caoilainn.substack.com/favicon.ico",
+            "category": "core"
+        },
+        {
+            "id": "9bbe7cd6-d8b5-4964-92d3-6a8617f73b6f",
+            "title": "Memory Is the Biggest Problem in Software Right Now",
+            "author": "Devansh",
+            "publication": "Technology Made Simple",
+            "src": "https://codinginterviewsmadesimple.substack.com/p/memory-is-the-biggest-problem-in",
+            "datePublished": "2026-02-03T22:52:57.000Z",
+            "quote": "When state falls out of fast memory, systems don&#8217;t just slow down&#8202;&#8212;&#8202;they become brittle, unpredictable, and expensive to operate.",
+            "topic": [
+                "System Performance",
+                "",
+                "Memory Management"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!LiDQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc42c356a-3ffd-4475-b75d-150f76b60295_1244x534.jpeg",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!wdk3!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8546dc69-af46-4d5d-9a80-b66cb76c833b_644x644.png",
+            "category": "discovery"
+        },
+        {
+            "id": "2b73603b-1215-4f8d-843d-c819bfbc5ace",
+            "title": "Decoding tech trends and what's next - Ameya’s Substack",
+            "author": "Ameya",
+            "publication": "Ameya’s Substack",
+            "src": "https://finstor85.substack.com/p/decoding-tech-trends-and-whats-next",
+            "datePublished": "2025-09-14T12:21:01.000Z",
+            "quote": "spotting shifts early isn’t about headlines or hype cycles. It’s about connecting dots between technology, business models, and market behavior—long before the crowd catches on.",
+            "topic": [
+                "market analysis",
+                ","
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!mmgA!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffdd42210-e161-4277-bf6b-8061ba39bf0a_1024x1024.png",
+            "favicon": "https://finstor85.substack.com/favicon.ico",
+            "category": "core"
+        },
+        {
+            "id": "2964d316-97e8-4ba3-93af-14810100ab47",
+            "title": "Decoding tech trends and what's next - Ameya’s Substack",
+            "author": "Ameya",
+            "publication": "Ameya’s Substack",
+            "src": "https://finstor85.substack.com/p/decoding-tech-trends-and-whats-next",
+            "datePublished": "2025-09-14T12:21:01.000Z",
+            "quote": "The big moments in technology rarely announce themselves. They start as whispers—an odd product feature, a company few take seriously, a shift in how people behave online.",
+            "topic": [
+                "technology trends",
+                "signal detection",
+                "innovation"
+            ],
+            "thumbnail": "https://substackcdn.com/image/fetch/$s_!mmgA!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffdd42210-e161-4277-bf6b-8061ba39bf0a_1024x1024.png",
+            "favicon": "https://finstor85.substack.com/favicon.ico",
+            "category": "core"
+        },
+        {
+            "id": "87ed9437-db96-4dfc-a32d-b649a9ecb634",
+            "title": "Innovation in Design Under Constraints: How Limitations Can Drive Creativity in UX/UI",
+            "author": "The Design Spark",
+            "publication": "The Design Spark",
+            "src": "https://jonathanbuitrago.substack.com/p/innovation-in-design-under-constraints",
+            "datePublished": "2025-01-29T11:50:44.000Z",
+            "quote": "limitations are not an obstacle, but an opportunity to shine.",
+            "topic": [
+                "constraints",
+                "opportunity",
+                "innovation",
+                "UX/UI"
+            ],
+            "thumbnail": "https://substack-post-media.s3.amazonaws.com/public/images/d5f1e0fe-8bbd-447d-a493-7938b2da3ae1_2158x1500.jpeg",
+            "favicon": "https://substackcdn.com/image/fetch/$s_!yyyb!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F78e3c358-be8a-4647-82e3-a114cf5e282c_800x800.jpeg",
+            "category": "core"
         }
     ]
 }
