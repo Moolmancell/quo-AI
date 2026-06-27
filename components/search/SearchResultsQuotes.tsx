@@ -3,6 +3,7 @@ import { SearchQuotesCard } from "./SearchQuotesCard";
 import { Spinner } from "@/components/ui/Spinner";
 import { WentWrong } from "@/components/error/WentWrong";
 import { useSearchQuotes } from "@/hooks/search/useSearchQuotes";
+import { DialogQuoteCard } from "./DialogQuoteCard";
 
 export function SearchResultsQuotes({search}: {search: string}) {
 
@@ -38,17 +39,19 @@ export function SearchResultsQuotes({search}: {search: string}) {
             {status === "success" && (
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {searchResultsQuotes.map((quote: any) => (
-                        <li key={quote.id}>
-                            <SearchQuotesCard
-                                id={quote.id}
-                                datePublished={quote.datePublished}
-                                publication={quote.publication}
-                                author={quote.author}
-                                src={quote.src}
-                                quote={quote.quote}
-                                thumbnail={quote.thumbnail}
-                                favicon={quote.favicon}
-                            />
+                        <li key={quote.id} className="w-full">
+                            <DialogQuoteCard quote={quote}>
+                                <SearchQuotesCard
+                                    id={quote.id}
+                                    datePublished={quote.datePublished}
+                                    publication={quote.publication}
+                                    author={quote.author}
+                                    src={quote.src}
+                                    quote={quote.quote}
+                                    thumbnail={quote.thumbnail}
+                                    favicon={quote.favicon}
+                                />
+                            </DialogQuoteCard>
                         </li>
                     ))}
                 </ul>
